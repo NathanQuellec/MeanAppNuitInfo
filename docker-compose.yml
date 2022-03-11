@@ -1,4 +1,4 @@
-version: '2.1.1' # specify docker-compose version
+version: '2.1' # specify docker-compose version
 
 # Define the services/ containers to be run
 services:
@@ -13,7 +13,12 @@ services:
   - "3000:3000" #specify ports mapping
   links:
   - database # link this service to the database service
- 
+
+ flask:
+  build: machine_learning
+  ports:
+  - "5000:5000"
+
  database: # name of the third service
   image: mongo # specify image to build container from
   ports:

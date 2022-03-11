@@ -6,11 +6,12 @@ app = Flask(__name__)
 def test():
     # If method GET, send error message
     if request.method == "GET" : 
-        return jsonify("Method type error"), 405
+        response = jsonify("Machine Learning component works !"), 200
+        response.headers.add('Access-Control-Allow-Origin', '*')
+        return response
     else:
         input_data = request.get_json()
         return jsonify("Les informations envoyés : ", input_data)
 
 if __name__ == '__main__':
-    app.debug = True
-    app.run()
+    app.run(port=5000, debug=True)

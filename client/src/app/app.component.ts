@@ -10,12 +10,16 @@ export class AppComponent implements OnInit{
 
   constructor(private service : AppServiceService) {}
 
+  title = 'CheckSanté';
+  express:string = "";
+
   ngOnInit(): void {
     this.getDataFromApi();
   }
   
   getDataFromApi() {
     this.service.getData().subscribe(result => {
+      this.express = JSON.stringify(result);
       console.log(result);
     });
   }

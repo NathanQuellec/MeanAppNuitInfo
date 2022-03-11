@@ -21,7 +21,16 @@ mongoose.connection.on('error', function(err) {
  console.error('MongoDB connection error: ' + err);
 });
 
-require('./routes')(app);
+/* const monSchema = new mongoose.Schema({
+    nom: "Mongo",
+    status: "Work"
+})
+const monModel = mongoose.model('monModel', monSchema);
 
+app.get('/', (req, resp) => {
+        resp.send(monModel.findOne({}))
+}) */
+
+require('./routes')(app);
 app.listen(config.app.port, () => console.log(`Example app listening on ${config.app.port}!`))
 
