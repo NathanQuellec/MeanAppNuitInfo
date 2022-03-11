@@ -7,7 +7,6 @@ import { AppServiceService } from './services/app-service.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-
   constructor(private service : AppServiceService) {}
 
   ngOnInit(): void {
