@@ -13,5 +13,7 @@ RUN pip3 install -r requirements.txt
 # Add source code to image
 COPY . .
 
+EXPOSE 5000
+
 # Run flask server
 CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]

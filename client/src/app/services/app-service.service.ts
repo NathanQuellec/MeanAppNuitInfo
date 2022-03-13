@@ -21,4 +21,8 @@ export class AppServiceService {
   getData(): Observable<string> {
     return this.http.get<string>(environment.apiUrl + '/hello');
   }
+
+  getMessage(): Observable<string> {
+    return this.http.get<string>(environment.apiUrl + '/');
+  }
 }
