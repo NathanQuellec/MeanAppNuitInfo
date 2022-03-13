@@ -12,9 +12,11 @@ export class AppComponent implements OnInit{
 
   title = 'CheckSanté';
   express:string = "";
+  flask:string = "";
 
   ngOnInit(): void {
     this.getDataFromApi();
+    this.getMessageFromApi();
   }
   
   getDataFromApi() {
@@ -23,4 +25,13 @@ export class AppComponent implements OnInit{
       console.log(result);
     });
   }
+
+  getMessageFromApi() {
+    this.service.getMessage().subscribe(result => {
+      this.flask = JSON.stringify(result);
+      console.log(result);
+    });
+  }
+
+
 }

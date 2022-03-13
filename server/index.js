@@ -31,6 +31,7 @@ app.get('/', (req, resp) => {
         resp.send(monModel.findOne({}))
 }) */
 
+
 require('./routes')(app);
 app.listen(config.app.port, () => console.log(`Example app listening on ${config.app.port}!`))
 
