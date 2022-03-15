@@ -10,5 +10,5 @@ jobs:
     - name: Build the stack
       run: | 
         echo ---Building and starting up docker---
-        docker-compose up --exit-code-from client
+        docker-compose up --build -d
         echo ---End of build---
