@@ -2,7 +2,7 @@
 FROM python:3.8-slim-buster
 
 # Create app directory
-WORKDIR /app
+WORKDIR /app/
 
 # Get the requirements
 COPY requirements.txt requirements.txt
