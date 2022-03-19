@@ -1,6 +1,6 @@
-import { routesTest } from './routesTest.js';
+import { UserController } from './UserController.js';
 
 export const configureRoutes = app => {
-    routesTest(app);
+    UserController(app);
     return app;
 }

@@ -13,15 +13,4 @@ mongoose.connection.on('error', (err) => {
   console.error(`MongoDB connection error: ${err}`);
 });
 
-/* const monSchema = new mongoose.Schema({
-    nom: "Mongo",
-    status: "Work"
-})
-const monModel = mongoose.model('monModel', monSchema);
-
-app.get('/', (req, resp) => {
-        resp.send(monModel.findOne({}))
-}) */
-
-
 app.listen(components.app.port, () => console.log(`Example app listening on ${components.app.port}!`));
