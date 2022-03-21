@@ -6,5 +6,9 @@ export const UserRoutes = app => {
         res.send({ "Express": "Back-end component works !" })
     });
 
-    app.get('/forms', UserController.processUserInformation);
+    app.get('/flask', UserController.flaks_test);
+
+    app.post('/users', UserController.apiRegisterUserInformation);
+
+    app.get('/users', UserController.apiGetUserInformation);
 };

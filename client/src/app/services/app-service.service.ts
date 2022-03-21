@@ -23,6 +23,6 @@ export class AppServiceService {
   }
 
   getMessage(): Observable<string> {
-    return this.http.get<string>(environment.apiUrl + '/forms');
+    return this.http.get<string>(environment.apiUrl + '/flask');
   }
 }
