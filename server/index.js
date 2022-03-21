@@ -1,7 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import { configureServer, components } from './config/index.js';
-import { configureRoutes } from './api/index.js';
+import { configureRoutes } from './routes/index.js';
 
 const app = express();
 configureServer(app);

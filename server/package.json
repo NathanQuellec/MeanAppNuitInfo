@@ -16,6 +16,7 @@
     "compression": "^1.7.4",
     "config": "^3.3.6",
     "cors": "^2.8.5",
+    "events": "^3.3.0",
     "express": "^4.17.1",
     "helmet": "^5.0.2",
     "mongod": "^2.0.0",
