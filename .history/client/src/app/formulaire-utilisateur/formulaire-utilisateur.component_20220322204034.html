@@ -3,7 +3,7 @@
 <div class="conteneur">
 
   <h1>Informations personnelles :</h1>
-  <form #utilisateurForm="ngForm" (ngSubmit)="infoPerso(utilisateurForm)">
+  <form #userForm="ngForm">
     <div class="form-group">
       <label for="name">Prénom</label>
       <input type="text" class="form-control" id="name"
@@ -53,7 +53,7 @@
             </div>
     </div>
   </form>
-  <button type="submit" class="btn btn-success" [disabled]="!utilisateurForm.form.valid">Submit</button>
+  <button type="submit" class="btn btn-success" [disabled]="!userForm.form.valid">Submit</button>
 
 
   <div [hidden]="!submitted">
