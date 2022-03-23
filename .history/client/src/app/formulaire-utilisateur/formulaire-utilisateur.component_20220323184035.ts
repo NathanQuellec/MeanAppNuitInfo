@@ -50,6 +50,6 @@ export class FormulaireUtilisateurComponent implements OnInit {
       this.http.post(environment.apiUrl+"/users", body, httpOptions).subscribe(result => 
       this.resultPost = result);
       console.log(this.resultPost);
-      this.route.navigate(['/Accueil']);
+      this.route.navigate(['']);
   }
 }
