@@ -18,7 +18,7 @@ export class FormulaireUtilisateurComponent implements OnInit {
  
   resultPost: String | any;
   
-  model = new User(1, '', '', '', '')
+  model = new User('', '', 0)
 
   submitted = false;
 
@@ -32,19 +32,14 @@ export class FormulaireUtilisateurComponent implements OnInit {
   infoPerso(utilisateurForm: any){
     let data = utilisateurForm.value
     console.log(utilisateurForm)
-    console.log(data.id)
-      let id: string = data.id
       let name: string = data.name
       let surname: string = data.surname
-      let email: string = data.email
-      let adress: string = data.adress
+      let age: number = data.age
     
       const body = new HttpParams()
-      .append('id', id)
       .append('name', name)
       .append('surname', surname)
-      .append('email', email)
-      .append('adress', adress)
+      .append('age', age)
       
       console.log(body)
       this.http.post(environment.apiUrl+"/users", body, httpOptions).subscribe(result => 
