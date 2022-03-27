@@ -5,10 +5,8 @@ import { FormulaireUtilisateurComponent } from './formulaire-utilisateur/formula
 
 const routes: Routes = [
   {
-    path: "Informations", component: FormulaireUtilisateurComponent
-  },
-  {
-    path: "Accueil", component: AccueilComponent
+    path: "/", component: AccueilComponent},
+    {path: "Inscrire", component: FormulaireUtilisateurComponent
   }
 ];
 
