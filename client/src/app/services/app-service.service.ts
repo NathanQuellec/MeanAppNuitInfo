@@ -19,10 +19,10 @@ export class AppServiceService {
   constructor(private http: HttpClient) { }
 
   getData(): Observable<string> {
-    return this.http.get<string>(environment.apiUrl + '/hello');
+    return this.http.get<string>(environment.apiUrl + '/users');
   }
 
   getMessage(): Observable<string> {
-    return this.http.get<string>(environment.apiUrl + '/');
+    return this.http.get<string>(environment.apiUrl + '/flask');
   }
 }

@@ -1,9 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
+import { AccueilComponent } from './accueil/accueil.component';
+import { FormulaireUtilisateurComponent } from './formulaire-utilisateur/formulaire-utilisateur.component';
 
 const routes: Routes = [
-  { path: 'app', component: AppComponent}
+  {
+    path: "Informations", component: FormulaireUtilisateurComponent
+  },
+  {
+    path: "Accueil", component: AccueilComponent
+  }
 ];
 
 @NgModule({
