@@ -1,7 +1,202 @@
-div.conteneur {
-    display: inline table;
-    width: 25%;
-    margin: auto;
-    height: auto;
-    margin-top: 10%;
+.form-bg{
+    background: linear-gradient(to right,#ff5959 10%,#ffa6a6);
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    width: 100%;
+    height: 100%;
+    margin-top: -20px;
+    padding: 0;
 }
+
+.title{
+    text-align: center;
+}
+
+.form-horizontal .form-group{
+    margin-bottom: 20px;
+}
+
+.form-horizontal .form-control{
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.5);
+    height: 44px;
+    line-height: 2;
+    color: #fff;
+    padding: 10px 15px;
+}
+
+.form-horizontal .form-control:focus{
+    border-color: #fff;
+    box-shadow:0 1px 3px rgba(255,255,255,0.5);
+    outline: 0 none;
+}
+
+.form-horizontal .form-control::-moz-placeholder{
+    color: #fff;
+    opacity: 0.5;
+}
+
+.form-horizontal .checkGenre{
+    display: none;
+}
+
+.form-horizontal .checkGenre + label{
+    display: inline-block;
+    background-color: rgba(255,255,255,0.4);
+    border-radius: 5px;
+    padding: 10px 0;
+    color: #fff;
+    width: 48.4%;
+    text-align: center;
+    font-size: 15px;
+    margin-right: 10px;
+}
+
+.form-horizontal #checkGenre2 + label{
+    margin-right: 0;
+}
+
+.form-horizontal .checkGenre:checked + label{
+    background: #fff;
+    color: #0062bd;
+}
+
+.form-horizontal .checkHabitation{
+        display: none;
+}
+
+.form-horizontal .checkHabitation + label{
+        display: inline-block;
+        background-color: rgba(255,255,255,0.4);
+        border-radius: 5px;
+        padding: 10px 0;
+        color: #fff;
+        width: 48.4%;
+        text-align: center;
+        font-size: 15px;
+        margin-right: 10px;
+}
+
+.form-horizontal #checkHabitation2 + label{
+        margin-right: 0;
+}
+
+.form-horizontal .checkHabitation:checked + label{
+        background: #fff;
+        color: #0062bd;
+}
+
+.form-horizontal .checkSport{
+        display: none;
+}
+
+.form-horizontal .checkSport + label{
+        display: inline-block;
+        background-color: rgba(255,255,255,0.4);
+        border-radius: 5px;
+        padding: 10px 0;
+        color: #fff;
+        width: 48.4%;
+        text-align: center;
+        font-size: 15px;
+        margin-right: 10px;
+}
+
+.form-horizontal #checkSport2 + label{
+        margin-right: 0;
+}
+
+.form-horizontal .checkSport:checked + label{
+        background: #fff;
+        color: #0062bd;
+}
+
+.form-horizontal .checkFruit{
+        display: none;
+}
+
+.form-horizontal .checkFruit + label{
+        display: inline-block;
+        background-color: rgba(255,255,255,0.4);
+        border-radius: 5px;
+        padding: 10px 0;
+        color: #fff;
+        width: 48.4%;
+        text-align: center;
+        font-size: 15px;
+        margin-right: 10px;
+}
+
+.form-horizontal #checkFruit2 + label{
+        margin-right: 0;
+}
+
+.form-horizontal .checkFruit:checked + label{
+        background: #fff;
+        color: #0062bd;
+}
+
+.form-horizontal .checkLegume{
+        display: none;
+}
+
+.form-horizontal .checkLegume + label{
+        display: inline-block;
+        background-color: rgba(255,255,255,0.4);
+        border-radius: 5px;
+        padding: 10px 0;
+        color: #fff;
+        width: 48.4%;
+        text-align: center;
+        font-size: 15px;
+        margin-right: 10px;
+}
+
+.form-horizontal #checkLegume2 + label{
+        margin-right: 0;
+}
+
+.form-horizontal .checkLegume:checked + label{
+        background: #fff;
+        color: #0062bd;
+}
+
+.form-horizontal select.form-control option{
+    color: #000;
+    background: #fff;
+}
+
+.form-horizontal .btn{
+    color: #fff;
+    background-color: rgba(255,255,255,0.4);
+    border: none;
+    padding: 10px 30px;
+    font-weight: 600;
+    transition: all 0.2s ease 0s;
+}
+
+.form-horizontal .btn:hover{
+    color: #0062bd;
+    background: #fff;
+}
+
+@media only screen and (max-width: 479px){
+
+    .checkGenre + label{
+        width: 48%;
+    }
+    .checkHabitation + label{
+        width: 48%;
+    }
+    .checkSport + label{
+        width: 48%;
+    }
+    .checkFruit + label{
+        width: 48%;
+    }
+    .checkLegume + label{
+        width: 48%;
+    }
+}
+    
+    
