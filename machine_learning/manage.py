@@ -1,4 +1,4 @@
-from flask_script import manager
+from flask_script import Manager
 from brique_ML import app
 from brique_ML.config import APP_CONFIG
 
