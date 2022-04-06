@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AccueilComponent } from './accueil/accueil.component';
 import { FormulaireUtilisateurComponent } from './formulaire-utilisateur/formulaire-utilisateur.component';
+import { FormulaireAvcComponent } from './formulaire-avc/formulaire-avc.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,9 @@ const routes: Routes = [
   },
   {
     path: "Profile", component: PageUtilisateurComponent
+  },
+  {
+    path: "Informations/AVC", component: FormulaireAvcComponent
   }
 ];
 

@@ -18,6 +18,7 @@ import {MatListModule} from '@angular/material/list';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { FormulaireAvcComponent } from './formulaire-avc/formulaire-avc.component';
 import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
@@ -25,6 +26,8 @@ import { NgChartsModule } from 'ng2-charts';
     AppComponent,
     FormulaireUtilisateurComponent,
     AccueilComponent,
+    HeaderComponent,
+    FormulaireAvcComponent
     HeaderComponent,
     PageUtilisateurComponent
   ],
