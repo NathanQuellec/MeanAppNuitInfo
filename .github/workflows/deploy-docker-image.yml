@@ -21,7 +21,7 @@ jobs:
       run: docker login -u hariray -p Check_Sante2022
       
     - name: Build ML docker image
-      run: cd machine_learning | docker build -t hariray/psid_checksante:ML${{ github.event.release.tag_name }} -f machine_learning/Dockerfile .
+      run: docker build -t hariray/psid_checksante:ML${{ github.event.release.tag_name }} -f machine_learning/Dockerfile ./machine_learning/
       
     - name: Push ML docker image
       run: docker push hariray/psid_checksante:ML${{ github.event.release.tag_name }}
