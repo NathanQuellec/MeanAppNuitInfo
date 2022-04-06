@@ -1,3 +1,4 @@
+import { PageUtilisateurComponent } from './page-utilisateur/page-utilisateur.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -17,13 +18,15 @@ import {MatListModule} from '@angular/material/list';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormulaireUtilisateurComponent,
     AccueilComponent,
-    HeaderComponent
+    HeaderComponent,
+    PageUtilisateurComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,8 @@ import { FormsModule } from '@angular/forms';
     MatListModule,
     FlexLayoutModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    NgChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
