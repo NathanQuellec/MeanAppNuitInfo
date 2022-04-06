@@ -27,7 +27,7 @@ import { NgChartsModule } from 'ng2-charts';
     FormulaireUtilisateurComponent,
     AccueilComponent,
     HeaderComponent,
-    FormulaireAvcComponent
+    FormulaireAvcComponent,
     HeaderComponent,
     PageUtilisateurComponent
   ],
