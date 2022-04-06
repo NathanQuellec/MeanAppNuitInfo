@@ -34,4 +34,24 @@ export class UserService {
     this.resultPost = result);
     console.log(this.resultPost);
   }
+
+
+  informationsAvc(gender: string, age: number, hypertension: string, heartDisease: string, married: string, work: string, residence: string, glucose: number, bim: number){
+    const body = new HttpParams()
+      .append('gender', gender)
+      .append('age', age)
+      .append('hypertension', hypertension)
+      .append('heartDisease', heartDisease)
+      .append('married', married)
+      .append('work', work)
+      .append('residence', residence)
+      .append('glucose', glucose)
+      .append('bim', bim)
+
+    console.log(body)
+    this.http.post(environment.apiUrl+"/users", body, httpOptions).subscribe(result => 
+    this.resultPost = result);
+    console.log(this.resultPost);
+  }
+
 }

@@ -1,0 +1,198 @@
+.form-bg{
+    font-family: 'Roboto', sans-serif;
+    color: #000000;
+    width: 100%;
+    height: 100%;
+    margin-top: -20px;
+    padding: 0;
+}
+
+.title{
+    text-align: center;
+}
+
+.form-horizontal .form-group{
+    margin-bottom: 20px;
+}
+
+.form-horizontal .form-control{
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.5);
+    height: 44px;
+    line-height: 2;
+    color: #000000;
+    padding: 10px 15px;
+}
+
+.form-horizontal .form-control:focus{
+    border-color: #000000;
+    box-shadow:0 1px 3px rgba(255,255,255,0.5);
+    outline: 0 none;
+}
+
+.form-horizontal .form-control::-moz-placeholder{
+    color: #9d9d9d;
+    opacity: 0.5;
+}
+
+.form-horizontal .checkHypertension{
+    display: none;
+}
+
+.form-horizontal .checkHypertension + label{
+    display: inline-block;
+    background-color: #9d9d9d;
+    border-radius: 5px;
+    padding: 10px 0;
+    color: #fff;
+    width: 48.4%;
+    text-align: center;
+    font-size: 15px;
+    margin-right: 10px;
+}
+
+.form-horizontal #checkHypertension2 + label{
+    margin-right: 0;
+}
+
+.form-horizontal .checkHypertension:checked + label{
+    background: #828282;
+    color: #ff2626;
+}
+
+.form-horizontal .checkHeartDisease{
+        display: none;
+}
+
+.form-horizontal .checkHeartDisease + label{
+        display: inline-block;
+        background-color: #9d9d9d;
+        border-radius: 5px;
+        padding: 10px 0;
+        color: #fff;
+        width: 48.4%;
+        text-align: center;
+        font-size: 15px;
+        margin-right: 10px;
+}
+
+.form-horizontal #checkHeartDisease2 + label{
+        margin-right: 0;
+}
+
+.form-horizontal .checkHeartDisease:checked + label{
+        background: #828282;
+        color: #ff2626;
+}
+
+.form-horizontal .checkMarried{
+        display: none;
+}
+
+.form-horizontal .checkMarried + label{
+        display: inline-block;
+        background-color: #9d9d9d;
+        border-radius: 5px;
+        padding: 10px 0;
+        color: #fff;
+        width: 48.4%;
+        text-align: center;
+        font-size: 15px;
+        margin-right: 10px;
+}
+
+.form-horizontal #checkMarried2 + label{
+        margin-right: 0;
+}
+
+.form-horizontal .checkMarried:checked + label{
+        background: #828282;
+        color: #ff2626;
+}
+
+.form-horizontal .checkGenre{
+    display: none;
+}
+
+.form-horizontal .checkGenre + label{
+    display: inline-block;
+    background-color: #9d9d9d;
+    border-radius: 5px;
+    padding: 10px 0;
+    color: #fff;
+    width: 48.4%;
+    text-align: center;
+    font-size: 15px;
+    margin-right: 10px;
+}
+
+.form-horizontal #checkGenre2 + label{
+    margin-right: 0;
+}
+
+.form-horizontal .checkGenre:checked + label{
+    background: #828282;
+    color: #ff2626;
+}
+
+.form-horizontal .checkResidence{
+    display: none;
+}
+
+.form-horizontal .checkResidence + label{
+    display: inline-block;
+    background-color: #9d9d9d;
+    border-radius: 5px;
+    padding: 10px 0;
+    color: #fff;
+    width: 48.4%;
+    text-align: center;
+    font-size: 15px;
+    margin-right: 10px;
+}
+
+.form-horizontal #checkResidence2 + label{
+    margin-right: 0;
+}
+
+.form-horizontal .checkResidence:checked + label{
+    background: #828282;
+    color: #ff2626;
+}
+
+.form-horizontal select.form-control option{
+    color: #000000;
+    background: #fff;
+}
+
+.form-horizontal .btn{
+    color: #000000;
+    background-color: #9d9d9d;
+    border: none;
+    padding: 10px 30px;
+    font-weight: 600;
+    transition: all 0.2s ease 0s;
+}
+
+.form-horizontal .btn:hover{
+    color: #ff2626;
+    background: #828282;
+}
+
+@media only screen and (max-width: 479px){
+
+    .checkHypertension + label{
+        width: 48%;
+    }
+    .checkHeartDisease + label{
+        width: 48%;
+    }
+    .checkMarried + label{
+        width: 48%;
+    }
+    .checkGenre + label{
+        width: 48%;
+    }
+}
+    
+    

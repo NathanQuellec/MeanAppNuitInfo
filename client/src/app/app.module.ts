@@ -17,13 +17,15 @@ import {MatListModule} from '@angular/material/list';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { FormulaireAvcComponent } from './formulaire-avc/formulaire-avc.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormulaireUtilisateurComponent,
     AccueilComponent,
-    HeaderComponent
+    HeaderComponent,
+    FormulaireAvcComponent
   ],
   imports: [
     BrowserModule,
