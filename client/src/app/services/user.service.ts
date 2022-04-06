@@ -16,11 +16,18 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  informationsPerso(name : string, surname : string, age: number){
+  informationsPerso(name: string, surname: string, gender: string, age: number, house: string, sport: string, fruit: string, vegetable: string, address: string, email: string){
     const body = new HttpParams()
       .append('name', name)
       .append('surname', surname)
+      .append('gender', gender)
       .append('age', age)
+      .append('house', house)
+      .append('sport', sport)
+      .append('fruit', fruit)
+      .append('vegetable', vegetable)
+      .append('address', address)
+      .append('email', email)
     
     console.log(body)
     this.http.post(environment.apiUrl+"/users", body, httpOptions).subscribe(result => 

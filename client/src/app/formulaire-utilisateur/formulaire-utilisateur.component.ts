@@ -14,7 +14,7 @@ export class FormulaireUtilisateurComponent implements OnInit {
  
   resultPost: String | any;
   
-  model = new User('', '', 0)
+  model = new User('', '', '', 0, '', '', '', '', '', '')
 
   submitted = false;
 
@@ -32,9 +32,16 @@ export class FormulaireUtilisateurComponent implements OnInit {
 
     let name: string = data.name;
     let surname: string = data.surname;
+    let gender: string = data.gender;
     let age: number = data.age;
+    let house: string = data.house;
+    let sport: string = data.sport;
+    let fruit: string = data.fruit;
+    let vegetable: string = data.vegetable; 
+    let address: string = data.address;
+    let email: string = data.email;
     
-    this.user.informationsPerso(name, surname, age);
+    this.user.informationsPerso(name, surname, gender, age, house, sport, fruit, vegetable, address, email);
     this.route.navigate(['/']);
   }
 }
