@@ -12,7 +12,7 @@ const routes: Routes = [
     path: "Accueil", component: AccueilComponent
   },
   {
-    path: "Profile", component: PageUtilisateurComponent
+    path: "Profil", component: PageUtilisateurComponent
   }
 ];
 
