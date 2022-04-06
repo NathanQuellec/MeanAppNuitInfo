@@ -1,0 +1,4 @@
+id,gender,age,hypertension,heart_disease,ever_married,work_type,Residence_type,avg_glucose_level,bmi,smoking_status
+1,0,95,1,1,1,1,1,2289.69,360.6,2
+2,1,5,0,0,0,0,0,202.21,31,0
+3,1,60,0,0,1,1,0,104.51,27.3,1

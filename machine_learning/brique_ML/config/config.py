@@ -16,3 +16,8 @@ LOG_CONFIG = {
     "filename": "brique_ML.log",
     "level": logging.INFO
 }
+
+# Path to models
+PATH_MODELS = {
+    "strokes": ""
+}

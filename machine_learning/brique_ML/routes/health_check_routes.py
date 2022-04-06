@@ -1,5 +1,4 @@
-from crypt import methods
-from flask import Blueprint, request, jsonify, render_template
+from flask import Blueprint, request, jsonify
 
 # Create Blueprint
 url_prefix = "/health-check"
