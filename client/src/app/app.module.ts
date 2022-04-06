@@ -1,3 +1,4 @@
+import { PageUtilisateurComponent } from './page-utilisateur/page-utilisateur.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -18,6 +19,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { FormulaireAvcComponent } from './formulaire-avc/formulaire-avc.component';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { FormulaireAvcComponent } from './formulaire-avc/formulaire-avc.componen
     AccueilComponent,
     HeaderComponent,
     FormulaireAvcComponent
+    HeaderComponent,
+    PageUtilisateurComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +45,8 @@ import { FormulaireAvcComponent } from './formulaire-avc/formulaire-avc.componen
     MatListModule,
     FlexLayoutModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    NgChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

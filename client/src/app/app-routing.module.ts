@@ -1,3 +1,4 @@
+import { PageUtilisateurComponent } from './page-utilisateur/page-utilisateur.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AccueilComponent } from './accueil/accueil.component';
@@ -10,6 +11,9 @@ const routes: Routes = [
   },
   {
     path: "Accueil", component: AccueilComponent
+  },
+  {
+    path: "Profile", component: PageUtilisateurComponent
   },
   {
     path: "Informations/AVC", component: FormulaireAvcComponent
