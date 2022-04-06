@@ -11,8 +11,8 @@
     <div class="grid grid-cols-1 grid-rows-2 gap-4 place-content-evenly">
       <img src="assets/images/imc.svg" class="object-contain h-4/5 w-60" alt="imc"/>
       <div>
-        <p class="text-7xl font-custom font-bold text-green-700">{{bmi}}</p>
-        <p class="text-3xl font-custom font-bold text-green-600 mx-4">VOTRE IMC</p>
+        <p class="{{'text-7xl font-custom font-bold ' + colorIMCDigits}}">{{imc}}</p>
+        <p class="{{'text-3xl font-custom font-bold mx-4' + colorIMCLabel}}">VOTRE IMC</p>
       </div>
     </div>
   </div>
