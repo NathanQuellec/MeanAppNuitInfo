@@ -21,19 +21,19 @@ jobs:
       run: docker login -u hariray -p Check_Sante2022
       
     - name: Build ML docker image
-      run: docker build -t hariray/psid_checksante:ML${{ github.event.release.tag_name }} /machine_learning
+      run: docker build -t hariray/psid_checksante:ML${{ github.event.release.tag_name }} -f machine_learning/Dockerfile
       
     - name: Push ML docker image
       run: docker push hariray/psid_checksante:ML${{ github.event.release.tag_name }}
       
     - name: Build server docker image
-      run: docker build -t hariray/psid_checksante:SERVER${{ github.event.release.tag_name }} /server
+      run: docker build -t hariray/psid_checksante:SERVER${{ github.event.release.tag_name }} -f server/Dockerfile
       
     - name: Push server docker image
       run: docker push hariray/psid_checksante:SERVER${{ github.event.release.tag_name }}
       
     - name: Build client docker image
-      run: docker build -t hariray/psid_checksante:CLIENT${{ github.event.release.tag_name }} /client
+      run: docker build -t hariray/psid_checksante:CLIENT${{ github.event.release.tag_name }} -f client/Dockerfile
       
     - name: Push server docker image
       run: docker push hariray/psid_checksante:CLIENT${{ github.event.release.tag_name }}
