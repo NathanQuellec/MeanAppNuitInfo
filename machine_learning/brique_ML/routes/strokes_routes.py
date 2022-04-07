@@ -28,7 +28,13 @@ def strokes_test():
         # Création du dataframe
         df = pd.DataFrame(data=array,columns=col_name)
         # Prediction par le modèle
-        prediction = model_reglog_smote.predict(df)
-        # Transformation de la prédiction en string pour return
-        resultat = str(prediction[0])
-        return jsonify({"La prédiction envoyé par le model : ": resultat}), 200
+        prediction = model_reglog_smote.predict_proba(df)
+        # Recupération de la prédiction et de son score
+        resultat = np.argmax(prediction)
+        score = np.amax(prediction)
+        # Construction du message de retour
+        message = {
+            "prediction":str(resultat),
+            "score":str(score)
+        }
+        return jsonify(message), 200
