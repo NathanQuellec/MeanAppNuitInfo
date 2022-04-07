@@ -1,10 +1,10 @@
 import axios from "axios";
-import { avcInfo } from "../models/disease-avc.js";
+import { avcResults } from "../models/disease-avc-results.js";
 import { User } from "../models/user.js";
 export default class UserService {
   constructor() {}
 
-  static async getMessageFromFlask() {
+  /* static async getMessageFromFlask() {
     try {
       return await axios.get("http://flask:5000/").then((flask_resp) => {
         console.log(`statusCode: ${flask_resp.status}`);
@@ -14,7 +14,7 @@ export default class UserService {
     } catch (error) {
       console.error(error);
     }
-  }
+  } */
 
   static async registerUserInformation(userData) {
     try {
@@ -31,45 +31,24 @@ export default class UserService {
     }
   }
 
-  static async getUserInformation() {
-    try {
-      const user = await User.find();
-      return user;
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  /* static async registerAVCInformation(avcData){
-    try{
-      console.log(avcData);
-      const newAVCInfo = {
-        gender: avcData.gender,
-        age: avcData.age,
-        hypertension: avcData.hypertension,
-        heartDisease: avcData.heartDisease,
-        married: avcData.married,
-        work: avcData.work_type,
-        residence: avcData.residence,
-        glucose: avcData.glucose,
-        bmi: avcData.bmi,
-        smoking_status: avcData.smoking_status
-      };
-      const mongoResponse = await new avcInfo(newAVCInfo).save();
-      return mongoResponse;
-    } catch (error) {
-      console.error(error);
-    }
-  } */
-
   static async sendAVCInformationToFlask(avcData) {
     try {
-
-      const array = [avcData.gender, avcData.age, avcData.hypertension, 
-              avcData.heartDisease, avcData.married, avcData.work_type,
-              avcData.residence, avcData.glucose, avcData.bmi, avcData.smoking_status];
+      const array = [
+        avcData.gender,
+        avcData.age,
+        avcData.hypertension,
+        avcData.heartDisease,
+        avcData.married,
+        avcData.work_type,
+        avcData.residence,
+        avcData.glucose,
+        avcData.bmi,
+        avcData.smoking_status,
+      ];
       console.log(`test ${array}`);
-      const response = await axios.post("http://flask:5000/strokes/test", {value: array});
+      const response = await axios.post("http://flask:5000/strokes/test", {
+        value: array,
+      });
       console.log(response.data);
       return response.data;
     } catch (error) {
@@ -77,5 +56,28 @@ export default class UserService {
     }
   }
 
+  static async registerAVCModelResultsToMongo(avcData) {
+    try {
+      console.log(
+        `saving to mongo : ${avcData.prediction} and ${avcData.score}`
+      );
+      const newAVCResults = {
+        prediction: avcData.prediction,
+        score: avcData.score,
+      };
+      const mongoResponse = await new avcResults(newAVCResults).save();
+      return mongoResponse;
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
+  static async getAVCModelResults() {
+    try {
+      const results = await avcResults.find();
+      return results;
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }

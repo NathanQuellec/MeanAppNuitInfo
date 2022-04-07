@@ -4,26 +4,21 @@ import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-avc',
   templateUrl: './avc.component.html',
-  styleUrls: ['./avc.component.css']
+  styleUrls: ['./avc.component.css'],
 })
 export class AvcComponent implements OnInit {
+  constructor(private user: UserService) {}
 
-  constructor(private user: UserService) { }
-
-  //display: string = "";
-
-  /* postDisplay(){
-    console.log(this.user.resultPost)
-     this.user.resultPost().subscribe((result: any) => {
-      this.display = JSON.stringify(result);
-      console.log(result);
-    });
-     console.log(this.display);
-  } */
+  displayResultsModel: string = '';
 
   ngOnInit(): void {
-    //this.postDisplay();
+    this.getAVCResultsModelFromAPI();
   }
 
-
+  getAVCResultsModelFromAPI() {
+    this.user.getAVCResultsModel().subscribe((result) => {
+      this.displayResultsModel = JSON.stringify(result);
+      console.log(result);
+    });
+  }
 }
