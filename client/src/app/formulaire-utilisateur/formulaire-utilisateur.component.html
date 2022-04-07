@@ -7,23 +7,23 @@
             <h1 class="title">Informations personnelles</h1>
           </div>
           <div class="form-group">
-            <label class="col-md-3 col-sm-2 control-label" for="name">Nom</label>
+            <label class="col-md-3 col-sm-2 control-label" for="name">Nom :</label>
             <div class="col-md-9 col-sm-10">
-              <input type="text" class="form-control" id="name" placeholder="Le Men" required
+              <input type="text" class="form-control" id="name" required
               [(ngModel)]="model.name" name="name"
               #name="ngModel">
             </div>
           </div>
           <div class="form-group">
-            <label class="col-md-3 col-sm-2 control-label" for="surname">Prénom</label>
+            <label class="col-md-3 col-sm-2 control-label" for="surname">Prénom :</label>
             <div class="col-md-9 col-sm-10">
-              <input type="text" class="form-control" id="surname" placeholder="Yann" required
+              <input type="text" class="form-control" id="surname" required
               [(ngModel)]="model.surname" name="surname"
               #surname="ngModel">
             </div>
           </div>          
           <div class="form-group">
-            <label class="col-md-3 col-sm-2 control-label">Genre</label>
+            <label class="col-md-3 col-sm-2 control-label">Genre :</label>
             <div class="col-md-9 col-sm-10">
               <input class="checkGenre" type="radio" id="checkGenre1" name="genre" 
               [(ngModel)]="model.gender" name="gender"
@@ -36,15 +36,15 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="col-md-3 col-sm-2 control-label" for="age" >Age</label>
+            <label class="col-md-3 col-sm-2 control-label" for="age" >Age :</label>
             <div class="col-md-9 col-sm-10">
-              <input type="number" class="form-control" id="age" placeholder="24" required
+              <input type="number" class="form-control" id="age"  required
               [(ngModel)]="model.age" name="age"
               #age="ngModel">
             </div>
           </div>
           <div class="form-group">
-            <label class="col-md-3 col-sm-2 control-label" >Habitation</label>
+            <label class="col-md-3 col-sm-2 control-label" >Lieu d'habitation :</label>
             <div class="col-md-9 col-sm-10">
               <input class="checkHabitation" type="radio" id="checkHabitation1" name="house" 
               [(ngModel)]="model.house" name="house"
@@ -57,7 +57,7 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="col-md-3 col-sm-2 control-label">Activité physique</label>
+            <label class="col-md-3 col-sm-2 control-label">Exercez-vous une activité physique régulière ?</label>
             <div class="col-md-9 col-sm-10">
               <input class="checkSport" type="radio" id="checkSport1" name="sport" 
               [(ngModel)]="model.sport" name="sport"
@@ -70,7 +70,7 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="col-md-3 col-sm-2 control-label">Mangez  vous des fruits ?</label>
+            <label class="col-md-3 col-sm-2 control-label">Consommez-vous au moins 1 fruit par jour ?</label>
             <div class="col-md-9 col-sm-10">
               <input class="checkFruit" type="radio" id="checkFruit1" name="fruit" 
               [(ngModel)]="model.fruit" name="fruit"
@@ -83,7 +83,7 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="col-md-3 col-sm-2 control-label">Mangez  vous des légumes ?</label>
+            <label class="col-md-3 col-sm-2 control-label">Consommez-vous au moins 1 légume par jour ?</label>
             <div class="col-md-9 col-sm-10">
               <input class="checkLegume" type="radio" id="checkLegume1" name="vegetable"
               [(ngModel)]="model.vegetable" name="vegetable"
@@ -96,24 +96,24 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="col-md-3 col-sm-2 control-label" for="address">Adresse</label>
+            <label class="col-md-3 col-sm-2 control-label" for="address">Adresse :</label>
             <div class="col-md-9 col-sm-10">
-              <input type="text" class="form-control" id="address" placeholder="200 Av. de la République, 92000 Nanterre" required
+              <input type="text" class="form-control" id="address" required
               [(ngModel)]="model.address" name="address"
               #address="ngModel">
             </div>
           </div>
           <div class="form-group">
-            <label class="col-md-3 col-sm-2 control-label" for="email">Email</label>
+            <label class="col-md-3 col-sm-2 control-label" for="email">Email : </label>
             <div class="col-md-9 col-sm-10">
-              <input type="text" class="form-control" id="email" placeholder="@parisnanterre.fr" required
+              <input type="text" class="form-control" id="email" required
               [(ngModel)]="model.email" name="email"
               #email="ngModel">
             </div>
           </div>
           <div class="form-group">
             <div class="col-md-offset-3 col-sm-offset-2 col-sm-3">
-              <button type="submit" class="btn btn-success" [disabled]="!utilisateurForm.form.valid">Valider</button>
+              <button type="submit" class="btn btn-success" [disabled]="!utilisateurForm.form.valid">Enregistrer</button>
             </div>
           </div>
         </form>

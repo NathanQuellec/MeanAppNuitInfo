@@ -49,11 +49,11 @@ export class FormulaireAvcComponent implements OnInit {
 
 
   works = [
-    { workname: "Jamais travaillé", workcode: "Never_worked" },
-    { workname: "Au foyer", workcode: "children" },
-    { workname: "Gouvernemental", workcode: "Govt_jov" },
+    { workname: "Sans emploi", workcode: "Never_worked" },
+    { workname: "Etudiant", workcode: "children" },
+    { workname: "Fonctionnaire", workcode: "Govt_jov" },
     { workname: "Auto-entrepreneur", workcode: "Self-employed" },
-    { workname: "Employé", workcode: "Private" }
+    { workname: "Salarié", workcode: "Private" }
   ];
 
   onOptionsSelected(value:string){

@@ -7,11 +7,11 @@
               <h1 class="title">Informations AVC</h1>
             </div>
             <div class="form-group">
-              <label class="col-md-3 col-sm-2 control-label">Genre</label>
+              <label class="col-md-3 col-sm-2 control-label">Genre :</label>
               <div class="col-md-9 col-sm-10">
                 <input class="checkGenre" type="radio" id="checkGenre1" name="genre" 
                 [(ngModel)]="model.gender" name="gender"
-                #gender="ngModel" value="homme">
+                #gender="ngModel" value="homme" required>
                 <label for="checkGenre1">Homme</label>
                 <input class="checkGenre" type="radio" id="checkGenre2" name="genre" 
                 [(ngModel)]="model.gender" name="gender"
@@ -20,18 +20,18 @@
               </div>
             </div>
             <div class="form-group">
-              <label class="col-md-3 col-sm-2 control-label" for="age" >Age</label>
+              <label class="col-md-3 col-sm-2 control-label" for="age" >Age :</label>
               <div class="col-md-9 col-sm-10">
-                <input type="number" class="form-control" id="age" placeholder="24" required
+                <input type="number" class="form-control" id="age" required
                 [(ngModel)]="model.age" name="age"
                 #age="ngModel">
               </div>
             </div>       
             <div class="form-group">
-              <label class="col-md-3 col-sm-2 control-label">Faites vous de l'hypertension ?</label>
+              <label class="col-md-3 col-sm-2 control-label">Faites-vous de l'hypertension ?</label>
               <div class="col-md-9 col-sm-10">
                 <input class="checkHypertension" type="radio" id="checkHypertension1" name="hypertension" name="hypertension" value="oui" [(ngModel)]="model.hypertension"
-                #hypertension="ngModel">
+                #hypertension="ngModel" required>
                 <label for="checkHypertension1" >Oui</label>
                 <input class="checkHypertension" type="radio" id="checkHypertension2" name="hypertension" name="hypertension" value="non" [(ngModel)]="model.hypertension"
                 #hypertension="ngModel">
@@ -39,10 +39,10 @@
             </div>
             </div>
             <div class="form-group">
-                <label class="col-md-3 col-sm-2 control-label">Avez-vous des problèmes au coeur ?</label>
+                <label class="col-md-3 col-sm-2 control-label">Avez-vous des problèmes cardiaques ?</label>
                 <div class="col-md-9 col-sm-10">
                   <input class="checkHeartDisease" type="radio" id="checkHeartDisease1" name="heartDisease" name="heartDisease" value="oui"[(ngModel)]="model.heartDisease"
-                  #heartDisease="ngModel">
+                  #heartDisease="ngModel" required>
                   <label for="checkHeartDisease1">Oui</label>
                   <input class="checkHeartDisease" type="radio" id="checkHeartDisease2" name="heartDisease" name="heartDisease" value="non" [(ngModel)]="model.heartDisease"
                   #heartDisease="ngModel">
@@ -53,7 +53,7 @@
                 <label class="col-md-3 col-sm-2 control-label">Vous êtes-vous déjà marié ?</label>
                 <div class="col-md-9 col-sm-10">
                   <input class="checkMarried" type="radio" id="checkMarried1" name="married" name="married" value="oui" [(ngModel)]="model.married"
-                  #married="ngModel">
+                  #married="ngModel" required>
                   <label for="checkMarried1">Oui</label>
                   <input class="checkMarried" type="radio" id="checkMarried2" name="married" name="married" value="non" [(ngModel)]="model.married"
                   #married="ngModel">
@@ -61,19 +61,19 @@
                 </div>
             </div>
             <div class="form-group">
-              <label class="col-md-3 col-sm-2 control-label">Type de travail</label>
+              <label class="col-md-3 col-sm-2 control-label">Situation professionnelle :</label>
               <div class="col-md-9 col-sm-10">
-                  <select class="form-control" [(ngModel)]="model.work" name="work" placeholder="select">
+                  <select class="form-control" [(ngModel)]="model.work" name="work" placeholder="select" required>
                     <option *ngFor="let w of works" [ngValue]="w.workcode">{{w.workname}}</option>
                 </select>
               </div>
             </div>
             <div class="form-group">
-              <label class="col-md-3 col-sm-2 control-label" >Habitation</label>
+              <label class="col-md-3 col-sm-2 control-label" >Lieu d'habitation :</label>
               <div class="col-md-9 col-sm-10">
                 <input class="checkResidence" type="radio" id="checkResidence1" name="residence" 
                 [(ngModel)]="model.residence" name="residence"
-                #residence="ngModel" value="urbain">
+                #residence="ngModel" value="urbain" required>
                 <label for="checkResidence1">Urbain</label>
                 <input class="checkResidence" type="radio" id="checkResidence2" name="residence"
                 [(ngModel)]="model.residence" name="residence"
@@ -82,22 +82,22 @@
               </div>
             </div>
             <div class="form-group">
-              <label class="col-md-3 col-sm-2 control-label" for="glucose" >Niveau de glucose</label>
+              <label class="col-md-3 col-sm-2 control-label" for="glucose" >Niveau de glycémie :</label>
               <div class="col-md-9 col-sm-10">
-                <input type="number" class="form-control" id="glucose" placeholder="90" required name="glucose" [(ngModel)]="model.glucose"
+                <input type="number" class="form-control" id="glucose" placeholder="0" required name="glucose" [(ngModel)]="model.glucose"
                 #glucose="ngModel">
               </div>
             </div>
             <div class="form-group">
-                <label class="col-md-3 col-sm-2 control-label" for="bmi">IMC</label>
+                <label class="col-md-3 col-sm-2 control-label" for="bmi">IMC :</label>
                 <div class="col-md-9 col-sm-10">
-                  <input type="number" class="form-control" id="bmi" placeholder="0" name="bmi" [(ngModel)]="model.bmi"
+                  <input type="number" class="form-control" id="bmi" required name="bmi" [(ngModel)]="model.bmi"
                   #bmi="ngModel">
                 </div>
             </div>
             <div class="form-group">
               <div class="col-md-offset-3 col-sm-offset-2 col-sm-3">
-                <button type="submit" class="btn btn-success" [disabled]="!avcForm.form.valid">Valider</button>
+                <button type="submit" class="btn btn-success" [disabled]="!avcForm.form.valid">Calculer</button>
               </div>
             </div>
           </form>

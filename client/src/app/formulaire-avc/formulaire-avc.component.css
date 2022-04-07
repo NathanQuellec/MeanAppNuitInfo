@@ -56,8 +56,8 @@
 }
 
 .form-horizontal .checkHypertension:checked + label{
-    background: #828282;
-    color: #ff2626;
+    background: #fff;
+    color: #2659ff;
 }
 
 .form-horizontal .checkHeartDisease{
@@ -81,8 +81,8 @@
 }
 
 .form-horizontal .checkHeartDisease:checked + label{
-        background: #828282;
-        color: #ff2626;
+        background: #fff;
+        color:#2659ff;
 }
 
 .form-horizontal .checkMarried{
@@ -106,8 +106,8 @@
 }
 
 .form-horizontal .checkMarried:checked + label{
-        background: #828282;
-        color: #ff2626;
+        background: #fff;
+        color: #2659ff;
 }
 
 .form-horizontal .checkGenre{
@@ -131,8 +131,8 @@
 }
 
 .form-horizontal .checkGenre:checked + label{
-    background: #828282;
-    color: #ff2626;
+    background: #fff;
+    color: #2659ff;
 }
 
 .form-horizontal .checkResidence{
@@ -156,8 +156,8 @@
 }
 
 .form-horizontal .checkResidence:checked + label{
-    background: #828282;
-    color: #ff2626;
+    background: #fff;
+    color: #2659ff;
 }
 
 .form-horizontal select.form-control option{
@@ -175,8 +175,8 @@
 }
 
 .form-horizontal .btn:hover{
-    color: #ff2626;
-    background: #828282;
+    color: #2659ff;
+    background: #fff;
 }
 
 @media only screen and (max-width: 479px){
