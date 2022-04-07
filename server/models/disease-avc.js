@@ -44,6 +44,10 @@ const avcInfoSchema = Schema({
     type: Number,
     required: true,
   },
+  smoking_status: {
+    type: Number,
+    required: true,
+  },
 });
 
 export const avcInfo = mongoose.model("avcInfo", avcInfoSchema);
