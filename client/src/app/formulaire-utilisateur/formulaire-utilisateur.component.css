@@ -36,11 +36,11 @@ h1{
     opacity: 0.5;
 }
 
-.form-horizontal .checkGenre{
+.form-horizontal .form-ratio{
     display: none;
 }
 
-.form-horizontal .checkGenre + label{
+.form-horizontal .form-ratio + label{
     display: inline-block;
     background-color: #9d9d9d;
     border-radius: 5px;
@@ -52,113 +52,30 @@ h1{
     margin-right: 10px;
 }
 
-.form-horizontal #checkGenre2 + label{
-    margin-right: 0;
-}
-
-.form-horizontal .checkGenre:checked + label{
+.form-horizontal .form-ratio:checked + label{
     background: #fff;
     color: #2659ff;
 }
 
-.form-horizontal .checkHabitation{
-        display: none;
-}
-
-.form-horizontal .checkHabitation + label{
-        display: inline-block;
-        background-color: #9d9d9d;
-        border-radius: 5px;
-        padding: 10px 0;
-        color: #fff;
-        width: 48.4%;
-        text-align: center;
-        font-size: 15px;
-        margin-right: 10px;
+.form-horizontal #checkGenre2 + label{
+    margin-right: 0;
 }
 
 .form-horizontal #checkHabitation2 + label{
         margin-right: 0;
 }
 
-.form-horizontal .checkHabitation:checked + label{
-        background: #fff;
-        color: #2659ff;
-}
-
-.form-horizontal .checkSport{
-        display: none;
-}
-
-.form-horizontal .checkSport + label{
-        display: inline-block;
-        background-color: #9d9d9d;
-        border-radius: 5px;
-        padding: 10px 0;
-        color: #fff;
-        width: 48.4%;
-        text-align: center;
-        font-size: 15px;
-        margin-right: 10px;
-}
 
 .form-horizontal #checkSport2 + label{
         margin-right: 0;
-}
-
-.form-horizontal .checkSport:checked + label{
-        background: #fff;
-        color: #2659ff;
-}
-
-.form-horizontal .checkFruit{
-        display: none;
-}
-
-.form-horizontal .checkFruit + label{
-        display: inline-block;
-        background-color: #9d9d9d;
-        border-radius: 5px;
-        padding: 10px 0;
-        color: #fff;
-        width: 48.4%;
-        text-align: center;
-        font-size: 15px;
-        margin-right: 10px;
 }
 
 .form-horizontal #checkFruit2 + label{
         margin-right: 0;
 }
 
-.form-horizontal .checkFruit:checked + label{
-        background: #fff;
-        color: #2659ff;
-}
-
-.form-horizontal .checkLegume{
-        display: none;
-}
-
-.form-horizontal .checkLegume + label{
-        display: inline-block;
-        background-color: #9d9d9d;
-        border-radius: 5px;
-        padding: 10px 0;
-        color: #fff;
-        width: 48.4%;
-        text-align: center;
-        font-size: 15px;
-        margin-right: 10px;
-}
-
 .form-horizontal #checkLegume2 + label{
         margin-right: 0;
-}
-
-.form-horizontal .checkLegume:checked + label{
-        background: #fff;
-        color: #2659ff;
 }
 
 .form-horizontal select.form-control option{
@@ -182,21 +99,7 @@ h1{
 
 @media only screen and (max-width: 479px){
 
-    .checkGenre + label{
-        width: 48%;
-    }
-    .checkHabitation + label{
-        width: 48%;
-    }
-    .checkSport + label{
-        width: 48%;
-    }
-    .checkFruit + label{
-        width: 48%;
-    }
-    .checkLegume + label{
+    .form-ratio + label{
         width: 48%;
     }
 }
-    
-    

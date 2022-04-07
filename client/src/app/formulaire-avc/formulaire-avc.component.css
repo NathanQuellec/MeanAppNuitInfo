@@ -12,6 +12,10 @@ h1{
     text-align: center; 
 } 
 
+p{
+    text-align: center;
+}
+
 .form-horizontal .form-group{
     margin-bottom: 20px;
 }
@@ -36,11 +40,11 @@ h1{
     opacity: 0.5;
 }
 
-.form-horizontal .checkHypertension{
+.form-horizontal .form-ratio{
     display: none;
 }
 
-.form-horizontal .checkHypertension + label{
+.form-horizontal .form-ratio + label{
     display: inline-block;
     background-color: #9d9d9d;
     border-radius: 5px;
@@ -50,115 +54,31 @@ h1{
     text-align: center;
     font-size: 15px;
     margin-right: 10px;
+}
+
+.form-horizontal .form-ratio:checked + label{
+    background: #fff;
+    color: #2659ff;
 }
 
 .form-horizontal #checkHypertension2 + label{
     margin-right: 0;
 }
 
-.form-horizontal .checkHypertension:checked + label{
-    background: #fff;
-    color: #2659ff;
-}
-
-.form-horizontal .checkHeartDisease{
-        display: none;
-}
-
-.form-horizontal .checkHeartDisease + label{
-        display: inline-block;
-        background-color: #9d9d9d;
-        border-radius: 5px;
-        padding: 10px 0;
-        color: #fff;
-        width: 48.4%;
-        text-align: center;
-        font-size: 15px;
-        margin-right: 10px;
-}
-
 .form-horizontal #checkHeartDisease2 + label{
         margin-right: 0;
-}
-
-.form-horizontal .checkHeartDisease:checked + label{
-        background: #fff;
-        color:#2659ff;
-}
-
-.form-horizontal .checkMarried{
-        display: none;
-}
-
-.form-horizontal .checkMarried + label{
-        display: inline-block;
-        background-color: #9d9d9d;
-        border-radius: 5px;
-        padding: 10px 0;
-        color: #fff;
-        width: 48.4%;
-        text-align: center;
-        font-size: 15px;
-        margin-right: 10px;
 }
 
 .form-horizontal #checkMarried2 + label{
         margin-right: 0;
 }
 
-.form-horizontal .checkMarried:checked + label{
-        background: #fff;
-        color: #2659ff;
-}
-
-.form-horizontal .checkGenre{
-    display: none;
-}
-
-.form-horizontal .checkGenre + label{
-    display: inline-block;
-    background-color: #9d9d9d;
-    border-radius: 5px;
-    padding: 10px 0;
-    color: #fff;
-    width: 48.4%;
-    text-align: center;
-    font-size: 15px;
-    margin-right: 10px;
-}
-
 .form-horizontal #checkGenre2 + label{
     margin-right: 0;
 }
 
-.form-horizontal .checkGenre:checked + label{
-    background: #fff;
-    color: #2659ff;
-}
-
-.form-horizontal .checkResidence{
-    display: none;
-}
-
-.form-horizontal .checkResidence + label{
-    display: inline-block;
-    background-color: #9d9d9d;
-    border-radius: 5px;
-    padding: 10px 0;
-    color: #fff;
-    width: 48.4%;
-    text-align: center;
-    font-size: 15px;
-    margin-right: 10px;
-}
-
 .form-horizontal #checkResidence2 + label{
     margin-right: 0;
-}
-
-.form-horizontal .checkResidence:checked + label{
-    background: #fff;
-    color: #2659ff;
 }
 
 .form-horizontal select.form-control option{
@@ -182,18 +102,7 @@ h1{
 
 @media only screen and (max-width: 479px){
 
-    .checkHypertension + label{
+    .form-ratio + label{
         width: 48%;
     }
-    .checkHeartDisease + label{
-        width: 48%;
-    }
-    .checkMarried + label{
-        width: 48%;
-    }
-    .checkGenre + label{
-        width: 48%;
-    }
-}
-    
-    
+}   

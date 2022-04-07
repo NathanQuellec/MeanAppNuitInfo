@@ -4,16 +4,17 @@
         <div class="col-md-offset-3 col-md-6">
           <form class="form-horizontal" #avcForm="ngForm" (ngSubmit)="infoAvc(avcForm)">
             <div class="form-group">
-              <h1>Informations AVC</h1>
+              <h1>Calcul du risque d'AVC</h1>
+              <p>Veillez remplir les champs suivants pour calculer votre risque d'AVC</p>
             </div>
             <div class="form-group">
               <label class="col-md-3 col-sm-2 control-label">Genre :</label>
               <div class="col-md-9 col-sm-10">
-                <input class="checkGenre" type="radio" id="checkGenre1" name="genre" 
+                <input class="form-ratio" type="radio" id="checkGenre1" name="genre" 
                 [(ngModel)]="model.gender" name="gender"
                 #gender="ngModel" value="1" required>
                 <label for="checkGenre1">Homme</label>
-                <input class="checkGenre" type="radio" id="checkGenre2" name="genre" 
+                <input class="form-ratio" type="radio" id="checkGenre2" name="genre" 
                 [(ngModel)]="model.gender" name="gender"
                 #gender="ngModel" value="0">
                 <label for="checkGenre2">Femme</label>
@@ -30,10 +31,10 @@
             <div class="form-group">
               <label class="col-md-3 col-sm-2 control-label">Faites-vous de l'hypertension ?</label>
               <div class="col-md-9 col-sm-10">
-                <input class="checkHypertension" type="radio" id="checkHypertension1" name="hypertension" name="hypertension" value="1" [(ngModel)]="model.hypertension"
+                <input class="form-ratio" type="radio" id="checkHypertension1" name="hypertension" name="hypertension" value="1" [(ngModel)]="model.hypertension"
                 #hypertension="ngModel" required>
                 <label for="checkHypertension1" >Oui</label>
-                <input class="checkHypertension" type="radio" id="checkHypertension2" name="hypertension" name="hypertension" value="0" [(ngModel)]="model.hypertension"
+                <input class="form-ratio" type="radio" id="checkHypertension2" name="hypertension" name="hypertension" value="0" [(ngModel)]="model.hypertension"
                 #hypertension="ngModel">
                 <label for="checkHypertension2">Non</label>
             </div>
@@ -41,10 +42,10 @@
             <div class="form-group">
                 <label class="col-md-3 col-sm-2 control-label">Avez-vous des problèmes cardiaques ?</label>
                 <div class="col-md-9 col-sm-10">
-                  <input class="checkHeartDisease" type="radio" id="checkHeartDisease1" name="heartDisease" name="heartDisease" value="1"[(ngModel)]="model.heartDisease"
+                  <input class="form-ratio" type="radio" id="checkHeartDisease1" name="heartDisease" name="heartDisease" value="1"[(ngModel)]="model.heartDisease"
                   #heartDisease="ngModel" required>
                   <label for="checkHeartDisease1">Oui</label>
-                  <input class="checkHeartDisease" type="radio" id="checkHeartDisease2" name="heartDisease" name="heartDisease" value="0" [(ngModel)]="model.heartDisease"
+                  <input class="form-ratio" type="radio" id="checkHeartDisease2" name="heartDisease" name="heartDisease" value="0" [(ngModel)]="model.heartDisease"
                   #heartDisease="ngModel">
                   <label for="checkHeartDisease2">Non</label>
                 </div>
@@ -52,10 +53,10 @@
             <div class="form-group">
                 <label class="col-md-3 col-sm-2 control-label">Vous êtes-vous déjà marié ?</label>
                 <div class="col-md-9 col-sm-10">
-                  <input class="checkMarried" type="radio" id="checkMarried1" name="married" name="married" value="1" [(ngModel)]="model.married"
+                  <input class="form-ratio" type="radio" id="checkMarried1" name="married" name="married" value="1" [(ngModel)]="model.married"
                   #married="ngModel" required>
                   <label for="checkMarried1">Oui</label>
-                  <input class="checkMarried" type="radio" id="checkMarried2" name="married" name="married" value="0" [(ngModel)]="model.married"
+                  <input class="form-ratio" type="radio" id="checkMarried2" name="married" name="married" value="0" [(ngModel)]="model.married"
                   #married="ngModel">
                   <label for="checkMarried2">Non</label>
                 </div>
@@ -71,11 +72,11 @@
             <div class="form-group">
               <label class="col-md-3 col-sm-2 control-label" >Lieu d'habitation :</label>
               <div class="col-md-9 col-sm-10">
-                <input class="checkResidence" type="radio" id="checkResidence1" name="residence" 
+                <input class="form-ratio" type="radio" id="checkResidence1" name="residence" 
                 [(ngModel)]="model.residence" name="residence"
                 #residence="ngModel" value="1" required>
                 <label for="checkResidence1">Urbain</label>
-                <input class="checkResidence" type="radio" id="checkResidence2" name="residence"
+                <input class="form-ratio" type="radio" id="checkResidence2" name="residence"
                 [(ngModel)]="model.residence" name="residence"
                 #residence="ngModel" value="0">
                 <label for="checkResidence2">Rural</label>
