@@ -15,7 +15,7 @@ export class FormulaireAvcComponent implements OnInit {
   body: String | any;
   resultPost: String | any;
 
-  model = new UserAvc( '', 0, '', '', '', '', '', 0, 0)
+  model = new UserAvc( '', 0, false, false, false, '', '', 0, 0)
 
   submitted = false;
 
@@ -35,9 +35,9 @@ export class FormulaireAvcComponent implements OnInit {
 
     let gender: string = data.gender;
     let age: number = data.age;
-    let hypertension: string = data.hypertension;
-    let heartDisease: string = data.heartDisease;
-    let married: string = data.married;
+    let hypertension: boolean = data.hypertension;
+    let heartDisease: boolean = data.heartDisease;
+    let married: boolean = data.married;
     let work: string = data.work;
     let residence: string = data.residence;
     let glucose: number = data.glucose;
