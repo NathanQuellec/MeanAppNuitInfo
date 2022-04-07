@@ -1,4 +1,5 @@
 import axios from "axios";
+import { avcInfo } from "../models/disease-avc.js";
 import { User } from "../models/user.js";
 export default class UserService {
   constructor() {}
@@ -36,6 +37,27 @@ export default class UserService {
       return user;
     } catch (error) {
       console.log(error);
+    }
+  }
+
+  static async registerAVCInformation(avcData){
+    try{
+      console.log(avcData);
+      const newAVCInfo = {
+        gender: avcData.gender,
+        age: avcData.age,
+        hypertension: avcData.hypertension,
+        heartDisease: avcData.heartDisease,
+        married: avcData.married,
+        work: avcData.work,
+        residence: avcData.residence,
+        glucose: avcData.glucose,
+        bmi: avcData.bmi
+      };
+      const mongoResponse = await new avcInfo(newAVCInfo).save();
+      return mongoResponse;
+    } catch (error) {
+      console.error(error);
     }
   }
 }

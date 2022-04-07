@@ -36,7 +36,7 @@ export class UserService {
   }
 
 
-  informationsAvc(gender: string, age: number, hypertension: string, heartDisease: string, married: string, work: string, residence: string, glucose: number, bim: number){
+  informationsAvc(gender: string, age: number, hypertension: boolean, heartDisease: boolean, married: boolean, work: string, residence: string, glucose: number, bim: number){
     const body = new HttpParams()
       .append('gender', gender)
       .append('age', age)
@@ -49,7 +49,7 @@ export class UserService {
       .append('bim', bim)
 
     console.log(body)
-    this.http.post(environment.apiUrl+"/users", body, httpOptions).subscribe(result => 
+    this.http.post(environment.apiUrl+"/diagnostics/avc", body, httpOptions).subscribe(result => 
     this.resultPost = result);
     console.log(this.resultPost);
   }

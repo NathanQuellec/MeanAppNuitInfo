@@ -10,4 +10,6 @@ export const UserRoutes = (app) => {
   app.post("/users", UserController.apiRegisterUserInformation);
 
   app.get("/users", UserController.apiGetUserInformation);
+
+  app.post("/diagnostics/avc", UserController.apiRegisterAVCInformation);
 };

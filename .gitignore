@@ -1,3 +1,4 @@
 .history
 brique_ML.log
 /build/*
+run-compose.sh
