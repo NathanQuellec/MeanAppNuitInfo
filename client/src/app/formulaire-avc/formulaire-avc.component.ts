@@ -15,7 +15,7 @@ export class FormulaireAvcComponent implements OnInit {
   body: String | any;
   resultPost: String | any;
 
-  model = new UserAvc( '', 0, false, false, false, '', '', 0, 0)
+  model = new UserAvc( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
   submitted = false;
 
@@ -33,28 +33,37 @@ export class FormulaireAvcComponent implements OnInit {
 
     console.log(avcForm)
 
-    let gender: string = data.gender;
+    let gender: number = data.gender;
     let age: number = data.age;
-    let hypertension: boolean = data.hypertension;
-    let heartDisease: boolean = data.heartDisease;
-    let married: boolean = data.married;
-    let work: string = data.work;
-    let residence: string = data.residence;
+    let hypertension: number = data.hypertension;
+    let heartDisease: number = data.heartDisease;
+    let married: number = data.married;
+    let work_type: number = data.work_type;
+    let residence: number = data.residence;
     let glucose: number = data.glucose;
     let bmi: number = data.bmi;
+    let smoking_status= data.smoking_status
 
-    this.user.informationsAvc( gender, age, hypertension, heartDisease, married, work, residence, glucose, bmi);
+    this.user.informationsAvc( gender, age, hypertension, heartDisease, married, work_type, residence, glucose, bmi, smoking_status);
     this.route.navigate(['/']);
   }
 
 
   works = [
-    { workname: "Sans emploi", workcode: "Never_worked" },
-    { workname: "Etudiant", workcode: "children" },
-    { workname: "Fonctionnaire", workcode: "Govt_jov" },
-    { workname: "Auto-entrepreneur", workcode: "Self-employed" },
-    { workname: "Salarié", workcode: "Private" }
+    { workname: "Fonctionnaire", workcode: 0 },
+    { workname: "Sans emploi", workcode: 1 },
+    { workname: "Salarié", workcode: 2 },
+    { workname: "Auto-entrepreneur", workcode: 3 },
+    { workname: "Etudiant", workcode: 4 },
   ];
+
+  smoke = [
+    { smokename: "Inconnu", smokecode: 0 },
+    { smokename: "Ancien fumeur", smokecode: 1 },
+    { smokename: "Jamais fumé", smokecode: 2 },
+    { smokename: "Fumeur", smokecode: 3 },
+  ];
+
 
   onOptionsSelected(value:string){
     console.log("the selected value is " + value);

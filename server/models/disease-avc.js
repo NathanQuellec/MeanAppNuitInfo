@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const avcInfoSchema = Schema({
   gender: {
-    type: String,
+    type: Number,
     required: true,
   },
 
@@ -14,23 +14,26 @@ const avcInfoSchema = Schema({
   },
 
   hypertension: {
-    type: Boolean,
+    type: Number,
     required: true,
   },
+
   heartDisease: {
-    type: Boolean,
+    type: Number,
     required: true,
   },
+
   married: {
-    type: Boolean,
+    type: Number,
     required: true,
   },
   work: {
-    type: String,
+    type: Number,
     required: true,
   },
+
   residence: {
-    type: String,
+    type: Number,
     required: true,
   },
   glucose: {
@@ -41,7 +44,6 @@ const avcInfoSchema = Schema({
     type: Number,
     required: true,
   },
-  
 });
 
 export const avcInfo = mongoose.model("avcInfo", avcInfoSchema);
