@@ -65,17 +65,13 @@ export default class UserService {
   static async sendAVCInformationToFlask(avcData) {
     try {
 
-      const array = [4, avcData.gender, avcData.age, avcData.hypertension, 
+      const array = [avcData.gender, avcData.age, avcData.hypertension, 
               avcData.heartDisease, avcData.married, avcData.work_type,
               avcData.residence, avcData.glucose, avcData.bmi, avcData.smoking_status];
-      console.log(avcData.bmi)
       console.log(`test ${array}`);
-      return await axios.post("http://flask:5000/strokes/test", {value: array}).then((flask_resp) => {
-        //console.log(`statusCode: ${flask_resp.status}`);
-        //console.log(flask_resp.data);
-        console.log(flask_resp);
-        return flask_resp;
-      });
+      const response = await axios.post("http://flask:5000/strokes/test", {value: array});
+      console.log(response.data);
+      return response.data;
     } catch (error) {
       console.error(error);
     }

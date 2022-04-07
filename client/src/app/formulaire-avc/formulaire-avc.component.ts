@@ -44,7 +44,8 @@ export class FormulaireAvcComponent implements OnInit {
     let bmi: number = data.bmi;
     let smoking_status= data.smoking_status
 
-    this.user.informationsAvc( gender, age, hypertension, heartDisease, married, work_type, residence, glucose, bmi, smoking_status);
+    let result = this.user.informationsAvc( gender, age, hypertension, heartDisease, married, work_type, residence, glucose, bmi, smoking_status);
+    console.log(result);
     this.route.navigate(['/Maladies/AVC']);
   }
 

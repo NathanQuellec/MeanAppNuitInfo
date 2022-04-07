@@ -50,9 +50,12 @@ export class UserService {
       .append('smoking_status', smoking_status)
 
     console.log(body)
-    this.http.post(environment.apiUrl+"/diagnostics/avc", body, httpOptions).subscribe(result => 
-    this.resultPost = result);
-    console.log(this.resultPost);
+    this.http.post(environment.apiUrl+"/diagnostics/avc", body, httpOptions).subscribe(result => {
+      console.log(result);
+      this.resultPost = result;
+    }
+    );
+    console.log(`resp : ${this.resultPost}`);
   }
 
 }

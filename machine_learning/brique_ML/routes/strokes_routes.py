@@ -24,7 +24,7 @@ def strokes_test():
         # On doit convertir les données en array à 2 dim
         array = np.array([raw_value])
         # Pour spécifier les colonnes
-        col_name = ["id","gender","age","hypertension","heart_disease","ever_married","work_type","Residence_type","avg_glucose_level","bmi","smoking_status"]
+        col_name = ["gender","age","hypertension","heart_disease","ever_married","work_type","Residence_type","avg_glucose_level","bmi","smoking_status"]
         # Création du dataframe
         df = pd.DataFrame(data=array,columns=col_name)
         # Prediction par le modèle

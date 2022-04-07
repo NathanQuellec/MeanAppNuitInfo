@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-avc',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AvcComponent implements OnInit {
 
-  constructor() { }
+  constructor(private user: UserService) { }
+
+  //display: string = "";
+
+  /* postDisplay(){
+    console.log(this.user.resultPost)
+     this.user.resultPost().subscribe((result: any) => {
+      this.display = JSON.stringify(result);
+      console.log(result);
+    });
+     console.log(this.display);
+  } */
 
   ngOnInit(): void {
+    //this.postDisplay();
   }
+
 
 }
