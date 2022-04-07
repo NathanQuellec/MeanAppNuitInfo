@@ -49,10 +49,11 @@ export default class UserService {
         hypertension: avcData.hypertension,
         heartDisease: avcData.heartDisease,
         married: avcData.married,
-        work: avcData.work,
+        work_type: avcData.work_type,
         residence: avcData.residence,
         glucose: avcData.glucose,
-        bmi: avcData.bmi
+        bmi: avcData.bmi,
+        smoking_status: avcData.smoking_status
       };
       const mongoResponse = await new avcInfo(newAVCInfo).save();
       return mongoResponse;

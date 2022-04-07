@@ -27,7 +27,7 @@ const avcInfoSchema = Schema({
     type: Number,
     required: true,
   },
-  work: {
+  work_type: {
     type: Number,
     required: true,
   },
@@ -41,6 +41,10 @@ const avcInfoSchema = Schema({
     required: true,
   },
   bmi: {
+    type: Number,
+    required: true,
+  },
+  smoking_status: {
     type: Number,
     required: true,
   },
