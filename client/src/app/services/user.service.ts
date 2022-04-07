@@ -36,20 +36,21 @@ export class UserService {
   }
 
 
-  informationsAvc(gender: string, age: number, hypertension: string, heartDisease: string, married: string, work: string, residence: string, glucose: number, bim: number){
+  informationsAvc(gender: number, age: number, hypertension: number, heartDisease: number, married: number, work_type: number, residence: number, glucose: number, bmi: number, smoking_status: number){
     const body = new HttpParams()
       .append('gender', gender)
       .append('age', age)
       .append('hypertension', hypertension)
       .append('heartDisease', heartDisease)
       .append('married', married)
-      .append('work', work)
+      .append('work_type', work_type)
       .append('residence', residence)
       .append('glucose', glucose)
-      .append('bim', bim)
+      .append('bmi', bmi)
+      .append('smoking_status', smoking_status)
 
     console.log(body)
-    this.http.post(environment.apiUrl+"/users", body, httpOptions).subscribe(result => 
+    this.http.post(environment.apiUrl+"/diagnostics/avc", body, httpOptions).subscribe(result => 
     this.resultPost = result);
     console.log(this.resultPost);
   }

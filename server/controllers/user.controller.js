@@ -36,4 +36,30 @@ export default class UserController {
       res.status(500).json({ error: error });
     }
   }
+
+  static async apiRegisterAVCInformation(req, res, next) {
+    try {
+      console.log(`Processing User Information ${req.body.name}`);
+      const avcInfoRegister = await UserService.registerAVCInformation(
+        req.body
+      );
+      res.json(avcInfoRegister);
+    } catch (error) {
+      res.status(500).json({ error: error });
+    }
+  }
+
+  static async apiSendAVCInformationToFlask(req, res, next) {
+    try {
+      console.log(`Send avc info to flask ${req.body.name}`);
+      const avcInfoSend = await UserService.sendAVCInformationToFlask(
+        req.body
+      );
+      res.json(avcInfoSend);
+    } catch (error) {
+      res.status(500).json({ error: error });
+    }
+  }
+
+
 }
