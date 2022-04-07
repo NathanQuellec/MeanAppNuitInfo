@@ -45,7 +45,7 @@ export class FormulaireAvcComponent implements OnInit {
     let smoking_status= data.smoking_status
 
     this.user.informationsAvc( gender, age, hypertension, heartDisease, married, work_type, residence, glucose, bmi, smoking_status);
-    this.route.navigate(['/']);
+    this.route.navigate(['/Maladies/AVC']);
   }
 
 
