@@ -36,4 +36,16 @@ export default class UserController {
       res.status(500).json({ error: error });
     }
   }
+
+  static async apiRegisterAVCInformation(req, res, next) {
+    try {
+      console.log(`Processing User Information ${req.body.name}`);
+      const userRegistration = await UserService.registerAVCInformation(
+        req.body
+      );
+      res.json(userRegistration);
+    } catch (error) {
+      res.status(500).json({ error: error });
+    }
+  }
 }
