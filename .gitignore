@@ -1,4 +1,6 @@
 .history
-brique_ML.log
+*.log
+*.pyc
 /build/*
+.DS_STORE
 run-compose.sh
