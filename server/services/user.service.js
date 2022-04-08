@@ -1,5 +1,5 @@
 import axios from "axios";
-import { avcResults } from "../models/disease-avc-results.js";
+import { AvcResults } from "../models/disease-avc-results.js";
 import { User } from "../models/user.js";
 export default class UserService {
   constructor() {}
@@ -65,7 +65,7 @@ export default class UserService {
         prediction: avcData.prediction,
         score: avcData.score,
       };
-      const mongoResponse = await new avcResults(newAVCResults).save();
+      const mongoResponse = await new AvcResults(newAVCResults).save();
       return mongoResponse;
     } catch (error) {
       console.error(error);
@@ -74,7 +74,7 @@ export default class UserService {
 
   static async getAVCModelResults() {
     try {
-      const results = await avcResults.find();
+      const results = await AvcResults.findOne().sort({createdAt: -1});
       return results;
     } catch (error) {
       console.log(error);

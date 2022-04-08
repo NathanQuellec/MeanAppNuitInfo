@@ -11,6 +11,8 @@ const avcResultsSchema = Schema({
     type: Number,
     required: true,
   },
+
+  
   /* gender: {
     type: Number,
     required: true,
@@ -56,6 +58,6 @@ const avcResultsSchema = Schema({
     type: Number,
     required: true,
   }, */
-});
+}, { timestamps: true });
 
-export const avcResults = mongoose.model("avcResults", avcResultsSchema);
+export const AvcResults = mongoose.model("AvcResults", avcResultsSchema);

@@ -11,7 +11,6 @@ import { UserAvc } from '../user-avc';
 })
 export class FormulaireAvcComponent implements OnInit {
   body: String | any;
-  resultPost: String | any;
 
   model = new UserAvc(0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 

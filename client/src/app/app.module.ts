@@ -1,13 +1,16 @@
+import { AppComponent } from './app.component';
+import { AccueilComponent } from './accueil/accueil.component';
+import { HeaderComponent } from './header/header.component';
 import { PageUtilisateurComponent } from './page-utilisateur/page-utilisateur.component';
+import { FormulaireUtilisateurComponent } from './formulaire-utilisateur/formulaire-utilisateur.component';
+import { FormulaireAvcComponent } from './formulaire-avc/formulaire-avc.component';
+import { AvcComponent } from './modules/resultatsMaladies/avc/avc.component';
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { FormulaireUtilisateurComponent } from './formulaire-utilisateur/formulaire-utilisateur.component';
-import { AccueilComponent } from './accueil/accueil.component';
 import { MatTabsModule } from '@angular/material/tabs';
-import { HeaderComponent } from './header/header.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
@@ -18,7 +21,6 @@ import {MatListModule} from '@angular/material/list';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { FormulaireAvcComponent } from './formulaire-avc/formulaire-avc.component';
 import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
@@ -29,7 +31,8 @@ import { NgChartsModule } from 'ng2-charts';
     HeaderComponent,
     FormulaireAvcComponent,
     HeaderComponent,
-    PageUtilisateurComponent
+    PageUtilisateurComponent,
+    AvcComponent
   ],
   imports: [
     BrowserModule,

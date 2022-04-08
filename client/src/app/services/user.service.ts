@@ -1,3 +1,4 @@
+import { AvcResults } from './../interface/AvcResults';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -81,7 +82,7 @@ export class UserService {
       });
   }
 
-  getAVCResultsModel(): Observable<string> {
-    return this.http.get<string>(environment.apiUrl + '/diagnostics/avc');
+  getAVCResultsModel(): Observable<AvcResults> {
+    return this.http.get<AvcResults>(environment.apiUrl + '/diagnostics/avc');
   }
 }
