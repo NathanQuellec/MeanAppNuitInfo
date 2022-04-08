@@ -1,8 +1,16 @@
-table
-{
-    width: 100%;
-    height: 300px;
-    text-align: center;
-    vertical-align: middle;
-}
+h1{ 
+    font-size:300%; 
+    text-align: center; 
+} 
+ 
+table{ 
+    width: 100%; 
+    height: 300px; 
+    vertical-align: middle; 
+} 
+ 
 
+li { 
+    list-style-type: disc; 
+} 
+ 

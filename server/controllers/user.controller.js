@@ -3,15 +3,6 @@ import UserService from "../services/user.service.js";
 export default class UserController {
   constructor() {}
 
-  static async flaks_test(req, res, next) {
-    try {
-      const test = await UserService.getMessageFromFlask();
-      res.json(test);
-    } catch (error) {
-      res.status(500).json({ error: error });
-    }
-  }
-
   static async apiRegisterUserInformation(req, res, next) {
     try {
       console.log(`Processing User Information ${req.body.name}`);
@@ -24,14 +15,30 @@ export default class UserController {
     }
   }
 
-  static async apiGetUserInformation(req, res, next) {
+  static async apiProcessAVCInformation(req, res, next) {
     try {
-      console.log("Get User Information");
-      const userRetrieval = await UserService.getUserInformation();
-      if (!userRetrieval) {
+      //on envoie les donnees du formulaire a flask pour la prediction
+      const avcResultsReceived = await UserService.sendAVCInformationToFlask(
+        req.body
+      );
+      // on enregistre le resultat de la prediction dans mongo
+      const avcResultsSaved = await UserService.registerAVCModelResultsToMongo(
+        avcResultsReceived
+      );
+      res.json(avcResultsReceived + " " + avcResultsSaved);
+    } catch (error) {
+      res.status(500).json({ error: error });
+    }
+  }
+
+  static async apiGetAVCModelResults(req, res, next) {
+    try {
+      console.log("Get Model Results");
+      const resultsRetrieval = await UserService.getAVCModelResults();
+      if (!resultsRetrieval) {
         res.status(404).json("Not found");
       }
-      res.json(userRetrieval);
+      res.json(resultsRetrieval);
     } catch (error) {
       res.status(500).json({ error: error });
     }

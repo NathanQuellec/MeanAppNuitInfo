@@ -1,9 +1,10 @@
 import axios from "axios";
+import { AvcResults } from "../models/disease-avc-results.js";
 import { User } from "../models/user.js";
 export default class UserService {
   constructor() {}
 
-  static async getMessageFromFlask() {
+  /* static async getMessageFromFlask() {
     try {
       return await axios.get("http://flask:5000/").then((flask_resp) => {
         console.log(`statusCode: ${flask_resp.status}`);
@@ -13,7 +14,7 @@ export default class UserService {
     } catch (error) {
       console.error(error);
     }
-  }
+  } */
 
   static async registerUserInformation(userData) {
     try {
@@ -30,10 +31,51 @@ export default class UserService {
     }
   }
 
-  static async getUserInformation() {
+  static async sendAVCInformationToFlask(avcData) {
     try {
-      const user = await User.find();
-      return user;
+      const array = [
+        avcData.gender,
+        avcData.age,
+        avcData.hypertension,
+        avcData.heartDisease,
+        avcData.married,
+        avcData.work_type,
+        avcData.residence,
+        avcData.glucose,
+        avcData.bmi,
+        avcData.smoking_status,
+      ];
+      console.log(`test ${array}`);
+      const response = await axios.post("http://flask:5000/strokes/test", {
+        value: array,
+      });
+      console.log(response.data);
+      return response.data;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  static async registerAVCModelResultsToMongo(avcData) {
+    try {
+      console.log(
+        `saving to mongo : ${avcData.prediction} and ${avcData.score}`
+      );
+      const newAVCResults = {
+        prediction: avcData.prediction,
+        score: avcData.score,
+      };
+      const mongoResponse = await new AvcResults(newAVCResults).save();
+      return mongoResponse;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  static async getAVCModelResults() {
+    try {
+      const results = await AvcResults.findOne().sort({createdAt: -1});
+      return results;
     } catch (error) {
       console.log(error);
     }

@@ -1,0 +1,6 @@
+.history
+*.log
+*.pyc
+/build/*
+.DS_STORE
+run-compose.sh

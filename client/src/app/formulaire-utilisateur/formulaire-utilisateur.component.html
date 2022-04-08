@@ -1,65 +1,123 @@
-
-
-<div class="conteneur">
-
-  <h1>Informations personnelles :</h1>
-  <form #utilisateurForm="ngForm" (ngSubmit)="infoPerso(utilisateurForm)">
-    <div class="form-group">
-      <label for="name">Prénom</label>
-      <input type="text" class="form-control" id="name"
-            required
-            [(ngModel)]="model.name" name="name"
-            #name="ngModel">
-      <div [hidden]="name.valid || name.pristine"
-        class="alert alert-danger">
-        Name is required
-      </div>
-    </div>
-    
-
-    <div class="form-group">
-      <label for="surname">Nom</label>
-      <input type="text" class="form-control" id="surname"
-            required
-            [(ngModel)]="model.surname" name="surname"
-            #surname="ngModel">
-      <div [hidden]="surname.valid || surname.pristine"
-        class="alert alert-danger">
-        Surname is required
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label for="age">Age</label>
-      <input type="number" class="form-control" id="age" min="0" max="120"
-            required
-            [(ngModel)]="model.age" name="age"
-            #age="ngModel">
-            <div [hidden]="age.valid || age.pristine"
-            class="alert alert-danger">
-            Age is required
+<div class="form-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-3 col-md-6">
+        <form class="form-horizontal" #utilisateurForm="ngForm" (ngSubmit)="infoPerso(utilisateurForm)">
+          <div class="form-group">
+            <h1>Informations personnelles</h1>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 col-sm-2 control-label" for="name">Nom :</label>
+            <div class="col-md-9 col-sm-10">
+              <input type="text" class="form-control" id="name" required
+              [(ngModel)]="model.name" name="name"
+              #name="ngModel">
             </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 col-sm-2 control-label" for="surname">Prénom :</label>
+            <div class="col-md-9 col-sm-10">
+              <input type="text" class="form-control" id="surname" required
+              [(ngModel)]="model.surname" name="surname"
+              #surname="ngModel">
+            </div>
+          </div>          
+          <div class="form-group">
+            <label class="col-md-3 col-sm-2 control-label">Genre :</label>
+            <div class="col-md-9 col-sm-10">
+              <input class="form-ratio" type="radio" id="checkGenre1" name="genre" 
+              [(ngModel)]="model.gender" name="gender"
+              #gender="ngModel" value="homme">
+              <label for="checkGenre1">Homme</label>
+              <input class="form-ratio" type="radio" id="checkGenre2" name="genre" 
+              [(ngModel)]="model.gender" name="gender"
+              #gender="ngModel" value="femme">
+              <label for="checkGenre2">Femme</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 col-sm-2 control-label" for="age" >Age :</label>
+            <div class="col-md-9 col-sm-10">
+              <input type="number" class="form-control" id="age"  required
+              [(ngModel)]="model.age" name="age"
+              #age="ngModel">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 col-sm-2 control-label" >Lieu d'habitation :</label>
+            <div class="col-md-9 col-sm-10">
+              <input class="form-ratio" type="radio" id="checkHabitation1" name="house" 
+              [(ngModel)]="model.house" name="house"
+              #house="ngModel" value="urbain">
+              <label for="checkHabitation1">Urbain</label>
+              <input class="form-ratio" type="radio" id="checkHabitation2" name="house"
+              [(ngModel)]="model.house" name="house"
+              #house="ngModel" value="rural">
+              <label for="checkHabitation2">Rural</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 col-sm-2 control-label">Exercez-vous une activité physique régulière ?</label>
+            <div class="col-md-9 col-sm-10">
+              <input class="form-ratio" type="radio" id="checkSport1" name="sport" 
+              [(ngModel)]="model.sport" name="sport"
+              #sport="ngModel" value="oui">
+              <label for="checkSport1">Oui</label>
+              <input class="form-ratio" type="radio" id="checkSport2" name="sport" 
+              [(ngModel)]="model.sport" name="sport"
+              #sport="ngModel" value="non">
+              <label for="checkSport2">Non</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 col-sm-2 control-label">Consommez-vous au moins 1 fruit par jour ?</label>
+            <div class="col-md-9 col-sm-10">
+              <input class="form-ratio" type="radio" id="checkFruit1" name="fruit" 
+              [(ngModel)]="model.fruit" name="fruit"
+              #fruit="ngModel" value="0">
+              <label for="checkFruit1">Oui</label>
+              <input class="form-ratio" type="radio" id="checkFruit2" name="fruit" 
+              [(ngModel)]="model.fruit" name="fruit"
+              #fruit="ngModel" value="1">
+              <label for="checkFruit2">Non</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 col-sm-2 control-label">Consommez-vous au moins 1 légume par jour ?</label>
+            <div class="col-md-9 col-sm-10">
+              <input class="form-ratio" type="radio" id="checkLegume1" name="vegetable"
+              [(ngModel)]="model.vegetable" name="vegetable"
+              #vegetable="ngModel" value="0">
+              <label for="checkLegume1">Oui</label>
+              <input class="form-ratio" type="radio" id="checkLegume2" name="vegetable"
+              [(ngModel)]="model.vegetable" name="vegetable"
+              #vegetable="ngModel" value="1">
+              <label for="checkLegume2">Non</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 col-sm-2 control-label" for="address">Adresse :</label>
+            <div class="col-md-9 col-sm-10">
+              <input type="text" class="form-control" id="address" required
+              [(ngModel)]="model.address" name="address"
+              #address="ngModel">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 col-sm-2 control-label" for="email">Email : </label>
+            <div class="col-md-9 col-sm-10">
+              <input type="text" class="form-control" id="email" required
+              [(ngModel)]="model.email" name="email"
+              #email="ngModel">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-md-offset-3 col-sm-offset-2 col-sm-3">
+              <button type="submit" class="btn btn-success" [disabled]="!utilisateurForm.form.valid">Enregistrer</button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
-
-    <button type="submit" class="btn btn-success" [disabled]="!utilisateurForm.form.valid">Valider</button>
-  </form>
-  
-
-  <div [hidden]="!submitted">
-    <h2>You submitted the following:</h2>
-    <div class="row">
-      <div class="col-xs-3">Prénom</div>
-      <div class="col-xs-9">{{ model.name }}</div>
-    </div>
-    <div class="row">
-      <div class="col-xs-3">Nom</div>
-      <div class="col-xs-9">{{ model.surname }}</div>
-    </div>
-    <div class="row">
-      <div class="col-xs-3">Age</div>
-      <div class="col-xs-9">{{ model.age }}</div>
-    </div>
-    <br>
-    <button type="button" class="btn btn-primary" (click)="submitted=false">Edit</button>
   </div>
 </div>
