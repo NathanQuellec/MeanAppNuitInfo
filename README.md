@@ -6,8 +6,3 @@
 4. Lancer la commande ```docker-compose up``` dans un terminal
 5. Aller à l'adresse suivante : [http://localhost:4200/](http://localhost:4200/)
 
-**Vous devez voir le résultat suivant :**
-
-*{"Express":"Back-end component works !"}*
-
-*{"Flask":"Machine Learning component works !"}*
