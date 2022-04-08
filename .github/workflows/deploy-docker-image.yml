@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Build & Push on Docker Hub
 
 on:
   push:
@@ -13,27 +13,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v2
     - name: docker login
       env:
-        DOCKER_USER: ${{secrets.DOCKER_USER}}
-        DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
-      run: docker login -u $DOCKER_USER -p DOCKER_PASSWORD
+        DOCKER_USER: '${{secrets.DOCKER_USER}}'
+        DOCKER_PASSWORD: '${{secrets.DOCKER_PASSWORD}}'
+      run: docker login -u hariray -p Check_Sante2022
       
     - name: Build ML docker image
-      run: docker build -t hariray/psid_checksante:ML${{ github.event.release.tag_name }} /machine_learning
+      run: docker build -t hariray/psid_checksante:ML${{ github.event.release.tag_name }} -f machine_learning/Dockerfile ./machine_learning/
       
     - name: Push ML docker image
       run: docker push hariray/psid_checksante:ML${{ github.event.release.tag_name }}
       
     - name: Build server docker image
-      run: docker build -t hariray/psid_checksante:SERVER${{ github.event.release.tag_name }} /server
+      run: docker build -t hariray/psid_checksante:SERVER${{ github.event.release.tag_name }} -f server/Dockerfile ./server/
       
     - name: Push server docker image
       run: docker push hariray/psid_checksante:SERVER${{ github.event.release.tag_name }}
       
     - name: Build client docker image
-      run: docker build -t hariray/psid_checksante:CLIENT${{ github.event.release.tag_name }} /client
+      run: docker build -t hariray/psid_checksante:CLIENT${{ github.event.release.tag_name }} -f client/Dockerfile ./client/
       
     - name: Push server docker image
       run: docker push hariray/psid_checksante:CLIENT${{ github.event.release.tag_name }}
