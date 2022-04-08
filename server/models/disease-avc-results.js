@@ -2,8 +2,18 @@ import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
 
-const avcInfoSchema = Schema({
-  gender: {
+const avcResultsSchema = Schema({
+  prediction: {
+    type: Boolean,
+    required: true,
+  },
+  score: {
+    type: Number,
+    required: true,
+  },
+
+  
+  /* gender: {
     type: Number,
     required: true,
   },
@@ -47,7 +57,7 @@ const avcInfoSchema = Schema({
   smoking_status: {
     type: Number,
     required: true,
-  },
-});
+  }, */
+}, { timestamps: true });
 
-export const avcInfo = mongoose.model("avcInfo", avcInfoSchema);
+export const AvcResults = mongoose.model("AvcResults", avcResultsSchema);

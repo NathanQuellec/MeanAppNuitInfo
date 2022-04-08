@@ -1,4 +1,15 @@
 <h1>Vos risques d'AVC</h1>
 
 <a href="/Informations/AVC">Calculer vos risques d'AVC</a>
-<!-- <p>{{display}}</p> -->
+
+<div *ngIf="avcResults.prediction; else goodHealth">
+  Après analyse de vos données, il semblerait que le risque que vous soyez sujet
+  à avoir une attaque cardiaque est de {{ avcResults.score | number : '1.2' }}
+</div>
+
+<ng-template #goodHealth>
+  <div>
+    Après analyse de vos données, il semblerait que vous êtes en bonne santé. La
+    chance de ne pas avoir de crise cardiaque est de {{ avcResults.score | number : '1.2' }}
+  </div>
+</ng-template>
