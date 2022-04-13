@@ -85,4 +85,8 @@ export class UserService {
   getAVCResultsModel(): Observable<AvcResults> {
     return this.http.get<AvcResults>(environment.apiUrl + '/diagnostics/avc');
   }
+
+  getAVCResultsModelHistory(): Observable<Array<AvcResults>> {
+    return this.http.get<Array<AvcResults>>(environment.apiUrl + '/diagnostics/avc/history');
+  }
 }

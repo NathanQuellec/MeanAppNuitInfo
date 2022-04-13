@@ -37,10 +37,13 @@ export default class UserController {
       const resultsRetrieval = await UserService.getAVCModelResults();
       if (!resultsRetrieval) {
         res.status(404).json("Not found");
+        return;
       }
       res.json(resultsRetrieval);
+      return;
     } catch (error) {
       res.status(500).json({ error: error });
+      return;
     }
   }
 
@@ -50,10 +53,13 @@ export default class UserController {
       const resultsRetrieval = await UserService.getAVCModelResultsHistory();
       if (!resultsRetrieval) {
         res.status(404).json("Not found");
+        return;
       }
       res.json(resultsRetrieval);
+      return;
     } catch (error) {
       res.status(500).json({ error: error });
+      return;
     }
   }
 
