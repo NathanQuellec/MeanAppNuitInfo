@@ -24,6 +24,7 @@ import { FormsModule } from '@angular/forms';
 import { NgChartsModule } from 'ng2-charts';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CardiaqueComponent } from './modules/resultatsMaladies/cardiaque/cardiaque.component';
+import { FormulaireCardiaqueComponent } from './formulaire-cardiaque/formulaire-cardiaque.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { CardiaqueComponent } from './modules/resultatsMaladies/cardiaque/cardia
     HeaderComponent,
     PageUtilisateurComponent,
     AvcComponent,
-    CardiaqueComponent
+    CardiaqueComponent,
+    FormulaireCardiaqueComponent
   ],
   imports: [
     BrowserModule,

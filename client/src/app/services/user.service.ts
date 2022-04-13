@@ -87,10 +87,31 @@ export class UserService {
   }
 
   informationsCardiaque(
-    gender: number
+    gender: number,
+    age: number,
+    chest_pain: number,
+    pression: number,
+    chrolesterol: number,
+    glycemie: number,
+    electro: number,
+    rythme: number,
+    angine: number,
+    oldpeak: number,
+    pente: number
+
   ) {
     const body = new HttpParams()
-      .append('gender', gender);
+      .append('gender', gender)
+      .append('age', age)
+      .append('chest_pain', chest_pain)
+      .append('pression',pression)
+      .append('chrolesterol',chrolesterol)
+      .append('glycemie',glycemie)
+      .append('electro', electro)
+      .append('rythme',rythme)
+      .append('angine',angine)
+      .append('oldpeak',oldpeak)
+      .append('pente',pente);
 
     console.log(body);
     return this.http

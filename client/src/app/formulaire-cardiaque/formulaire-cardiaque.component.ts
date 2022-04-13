@@ -1,31 +1,25 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserService } from 'src/app/services/user.service';
-import { UserCardiaque } from 'src/app/user-cardiaque';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { UserService } from '../services/user.service';
+import { UserCardiaque } from '../user-cardiaque';
 
 @Component({
-  selector: 'app-cardiaque',
-  templateUrl: './cardiaque.component.html',
-  styleUrls: ['./cardiaque.component.css']
+  selector: 'app-formulaire-cardiaque',
+  templateUrl: './formulaire-cardiaque.component.html',
+  styleUrls: ['./formulaire-cardiaque.component.css']
 })
-export class CardiaqueComponent implements OnInit {
-
-  resultPost: String | any;
+export class FormulaireCardiaqueComponent implements OnInit {
 
   model = new UserCardiaque(0,0,0,0,0,0,0,0,0,0,0);
-
+  
   constructor(
+    private http: HttpClient,
     private route: Router,
-    private user: UserService,
-    private modalService: NgbModal
+    private user: UserService
   ) { }
 
   ngOnInit(): void {
-  }
-
-  openInfoCardiaque(content: any) {
-    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
   }
 
   infoCardiaque(cardiaqueForm: any) {
@@ -37,8 +31,8 @@ export class CardiaqueComponent implements OnInit {
     let age: number = data.age;
     let chest_pain: number = data.chest_pain;
     let pression: number = data.pression;
-    let chroléstérol: number = data.chroléstérol;
-    let glycémie: number = data.glycémie;
+    let chrolesterol: number = data.chrolesterol;
+    let glycemie: number = data.glycemie;
     let electro: number = data.electro;
     let rythme: number = data.rythme;
     let angine: number = data.angine;
@@ -50,8 +44,8 @@ export class CardiaqueComponent implements OnInit {
       age,
       chest_pain,
       pression,
-      chroléstérol,
-      glycémie, 
+      chrolesterol,
+      glycemie, 
       electro,
       rythme,
       angine,
