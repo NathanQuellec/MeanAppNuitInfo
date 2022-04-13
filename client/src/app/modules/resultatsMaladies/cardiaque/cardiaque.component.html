@@ -1,0 +1,32 @@
+<div class="container">
+    <h1>Vos risques de maladies cardiaques</h1>
+    <div class="col">
+        <button class="btn btn-md btn-outline-primary" (click)="openInfoCardiaque(contentInfoCardiaque)"><i
+                class="fa fa-plus"></i>Calculer vos risques</button>&nbsp;
+    </div>
+</div>
+
+<ng-template #contentInfoCardiaque let-modal>
+    <div class="modal-header">
+        <h2 class="modal-title">Calcul du risque de maladies cardiaques</h2>
+        <p>Veillez remplir les champs suivants pour calculer votre risque de maladies cardiaques</p>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <form (ngSubmit)="infoCardiaque(cardiaqueForm)" #cardiaqueForm="ngForm">
+            <div class="form-group">
+                <label class="col-md-3 col-sm-2 control-label">Genre :</label>
+                <div class="col-md-9 col-sm-10">
+                    <input class="form-ratio" type="radio" id="checkGenre1" name="genre" [(ngModel)]="model.gender"
+                        name="gender" #gender="ngModel" value="1" required>
+                    <label for="checkGenre1">Homme</label>
+                    <input class="form-ratio" type="radio" id="checkGenre2" name="genre" [(ngModel)]="model.gender"
+                        name="gender" #gender="ngModel" value="0">
+                    <label for="checkGenre2">Femme</label>
+                </div>
+            </div>
+            <button data-dismiss="modal" type="submit" class="btn btn-success" [disabled]="!cardiaqueForm.form.valid"
+                onClick="window.location.reload();">Calculer</button>
+        </form>
+    </div>
+</ng-template>
