@@ -14,3 +14,5 @@ mongoose.connection.on('error', (err) => {
 });
 
 app.listen(components.app.port, () => console.log(`Example app listening on ${components.app.port}!`));
+
+export default app;

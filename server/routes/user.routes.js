@@ -6,4 +6,8 @@ export const UserRoutes = (app) => {
   app.post("/diagnostics/avc", UserController.apiProcessAVCInformation);
 
   app.get("/diagnostics/avc", UserController.apiGetAVCModelResults);
+
+  app.get("/test", UserController.test_simple);
+
+  app.get("/test/:nom", UserController.test_avec_nom);
 };

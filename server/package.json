@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "node --experimental-vm-modules node_modules/.bin/jest --coverage",
+    "test": "jest",
     "sonar": "node sonar-project.js"
   },
   "author": "",
@@ -32,7 +32,7 @@
     "watchpack": "^2.3.1"
   },
   "devDependencies": {
-    "eslint": "^8.11.0",
+    "eslint": "^8.13.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.25.4"
   }
