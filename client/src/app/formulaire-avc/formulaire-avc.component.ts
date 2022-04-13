@@ -57,7 +57,7 @@ export class FormulaireAvcComponent implements OnInit {
       smoking_status
     );
     console.log(result);
-    this.route.navigate(['/Maladies/AVC']);
+    this.route.navigate(['/Accueil']);
   }
 
   works = [
