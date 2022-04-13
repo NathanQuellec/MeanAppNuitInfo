@@ -85,4 +85,19 @@ export class UserService {
   getAVCResultsModel(): Observable<AvcResults> {
     return this.http.get<AvcResults>(environment.apiUrl + '/diagnostics/avc');
   }
+
+  informationsCardiaque(
+    gender: number
+  ) {
+    const body = new HttpParams()
+      .append('gender', gender);
+
+    console.log(body);
+    return this.http
+      .post(environment.apiUrl + '/diagnostics/cardiaque', body, httpOptions)
+      .subscribe((result) => {
+        this.resultPost = JSON.stringify(result);
+        console.log(`resp : ${this.resultPost}`);
+      });
+  }
 }
