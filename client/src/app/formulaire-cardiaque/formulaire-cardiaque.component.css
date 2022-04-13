@@ -61,6 +61,10 @@ p{
     color: #2659ff;
 }
 
+.form-horizontal #checkGenre2 + label{
+    margin-right: 0;
+}
+
 .form-horizontal #checkAngine2 + label{
     margin-right: 0;
 }

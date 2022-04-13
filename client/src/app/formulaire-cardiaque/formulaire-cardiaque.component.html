@@ -47,17 +47,17 @@
                             mm/dL):</label>
                         <div class="col-md-9 col-sm-10">
                             <input type="number" class="form-control" id="chrolesterol" placeholder="0" required
-                                name="chrolesterol" [(ngModel)]="model.chrolesterol" #pression="ngModel">
+                                name="chrolesterol" [(ngModel)]="model.chrolesterol" #cholesterol="ngModel">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-3 col-sm-2 control-label">Niveau de glycémie :</label>
                         <div class="col-md-9 col-sm-10">
                             <input class="form-ratio" type="radio" id="checkGlycemie1" name="glycemie"
-                                [(ngModel)]="model.glycemie" name="glycemie" #residence="ngModel" value="1" required>
+                                [(ngModel)]="model.glycemie" name="glycemie" #rglycemie="ngModel" value="1" required>
                             <label for="checkGlycemie1">Supérieur à 120</label>
                             <input class="form-ratio" type="radio" id="checkGlycemie2" name="glycemie"
-                                [(ngModel)]="model.glycemie" name="glycemie" #residence="ngModel" value="0">
+                                [(ngModel)]="model.glycemie" name="glycemie" #glycemie="ngModel" value="0">
                             <label for="checkGlycemie2">Inférieur ou égal à 120</label>
                         </div>
                     </div>
@@ -74,7 +74,7 @@
                         <label class="col-md-3 col-sm-2 control-label" for="rythme">Rythme cardiaque max :</label>
                         <div class="col-md-9 col-sm-10">
                             <input type="number" class="form-control" id="rythme" placeholder="0" required name="rythme"
-                                [(ngModel)]="model.rythme" #pression="ngModel">
+                                [(ngModel)]="model.rythme" #rythme="ngModel">
                         </div>
                     </div>
                     <div class="form-group">
