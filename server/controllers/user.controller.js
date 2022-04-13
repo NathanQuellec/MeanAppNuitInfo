@@ -43,4 +43,43 @@ export default class UserController {
       res.status(500).json({ error: error });
     }
   }
+
+  static async apiGetAVCModelResultsHistory(req, res, next){
+    try {
+      console.log("Get Model Results History");
+      const resultsRetrieval = await UserService.getAVCModelResultsHistory();
+      if (!resultsRetrieval) {
+        res.status(404).json("Not found");
+      }
+      res.json(resultsRetrieval);
+    } catch (error) {
+      res.status(500).json({ error: error });
+    }
+  }
+
+  static async apiGetDiabeteModelResults(req, res, next) {
+    try {
+      console.log("Get Model Results");
+      const resultsRetrieval = await UserService.getDiabeteModelResults();
+      if (!resultsRetrieval) {
+        res.status(404).json("Not found");
+      }
+      res.json(resultsRetrieval);
+    } catch (error) {
+      res.status(500).json({ error: error });
+    }
+  }
+
+  static async apiGetHeartModelResults(req, res, next) {
+    try {
+      console.log("Get Model Results");
+      const resultsRetrieval = await UserService.getHeartModelResults();
+      if (!resultsRetrieval) {
+        res.status(404).json("Not found");
+      }
+      res.json(resultsRetrieval);
+    } catch (error) {
+      res.status(500).json({ error: error });
+    }
+  }
 }
