@@ -6,4 +6,10 @@ export const UserRoutes = (app) => {
   app.post("/diagnostics/avc", UserController.apiProcessAVCInformation);
 
   app.get("/diagnostics/avc", UserController.apiGetAVCModelResults);
+
+  app.get("/diagnostics/avc/history", UserController.apiGetAVCModelResultsHistory);
+
+  app.get("/diagnostics/diabete", UserController.apiGetDiabeteModelResults);
+
+  app.get("/diagnostics/heart", UserController.apiGetHeartModelResults);
 };

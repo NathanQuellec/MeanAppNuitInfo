@@ -11,7 +11,7 @@ url_prefix = "/strokes"
 blueprint = Blueprint("strokes", __name__)
 
 # Import the model
-model_reglog_smote = joblib.load(filename='brique_ML/ML_models/logreg_smote.sav')
+model_reglog_smote = joblib.load(filename='brique_ML/ML_models/model-stroke-forest-undersample.sav')
 
 @blueprint.route("/test", methods=["POST", "GET"])
 def strokes_test():

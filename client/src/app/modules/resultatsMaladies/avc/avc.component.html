@@ -1,3 +1,4 @@
+
 <h1>Vos risques d'AVC</h1>
 
 <a href="/Informations/AVC">Calculer vos risques d'AVC</a>
@@ -13,3 +14,8 @@
     chance de ne pas avoir de crise cardiaque est de {{ avcResults.score | number : '1.2' }}
   </div>
 </ng-template>
+
+<div>
+  <canvas baseChart [data]="dataset" [labels]="barChartLabel" [options]="barChartOptions" [type]="type">
+  </canvas>
+</div>
