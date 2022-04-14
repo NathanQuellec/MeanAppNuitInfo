@@ -1,5 +1,5 @@
-describe('Test API AVC', () => {
-    it('successfully loads', () => {
+describe('Test API', () => {
+    it('POST AVC', () => {
         cy.visit('http://localhost:4200/Maladies/AVC')
 
         cy.contains("Calculer vos risques d'AVC").click({force: true})
