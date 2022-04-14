@@ -28,7 +28,7 @@ export class CardiaqueComponent implements OnInit {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
   }
 
-  infoCardiaque(cardiaqueForm: any) {
+  /*infoCardiaque(cardiaqueForm: any) {
     console.log(cardiaqueForm)
 
     let data = cardiaqueForm;
@@ -60,7 +60,7 @@ export class CardiaqueComponent implements OnInit {
     );
     console.log(result);
     this.route.navigate(['/Maladies/Cardiaque']);
-  }
+  }*/
 
   onOptionsSelected(value: string) {
     console.log('the selected value is ' + value);
@@ -70,7 +70,7 @@ export class CardiaqueComponent implements OnInit {
 
   onSubmit() { this.submitted = true; }
 
-  chests = [
+  /*chests = [
     { chestname: 'Aucune', chestcode: 0 },
     { chestname: 'Angine de poitrine atypique', chestcode: 1 },
     { chestname: 'Autre', chestcode: 2 },
@@ -87,6 +87,6 @@ export class CardiaqueComponent implements OnInit {
     { pentename: 'Bas', pentecode: 0 },
     { pentename: 'Plat', pentecode: 1 },
     { pentename: "Haut", pentecode: 2 },
-  ];
+  ];*/
 
 }

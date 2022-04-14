@@ -10,14 +10,22 @@ import { UserCardiaque } from '../user-cardiaque';
   styleUrls: ['./formulaire-cardiaque.component.css']
 })
 export class FormulaireCardiaqueComponent implements OnInit {
+  body: String | any;
 
   model = new UserCardiaque(0,0,0,0,0,0,0,0,0,0,0);
-  
+
+  submitted = false;
+
   constructor(
     private http: HttpClient,
     private route: Router,
     private user: UserService
   ) { }
+
+  onSubmit() {
+    this.submitted = true;
+  }
+
 
   ngOnInit(): void {
   }
@@ -25,7 +33,7 @@ export class FormulaireCardiaqueComponent implements OnInit {
   infoCardiaque(cardiaqueForm: any) {
     console.log(cardiaqueForm)
 
-    let data = cardiaqueForm;
+    let data = cardiaqueForm.value;
 
     let gender: number = data.gender;
     let age: number = data.age;
@@ -59,10 +67,6 @@ export class FormulaireCardiaqueComponent implements OnInit {
   onOptionsSelected(value: string) {
     console.log('the selected value is ' + value);
   }
-
-  submitted = false;
-
-  onSubmit() { this.submitted = true; }
 
   chests = [
     { chestname: 'Aucune', chestcode: 0 },
