@@ -1,0 +1,246 @@
+<div class="form-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6">
+                <form class="form-horizontal" (ngSubmit)="infoDiabete(diabeteForm)" #diabeteForm="ngForm">
+                    <div class="form-group">
+                        <h1>Calcul du risque de diabète</h1>
+                        <p>Veillez remplir les champs suivants pour calculer votre risque de diabète</p>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-sm-2 control-label">Faites-vous de l'hypertension ?</label>
+                        <div class="col-md-9 col-sm-10">
+                            <input class="form-ratio" type="radio" id="checkHypertension1" name="hypertension" value="1"
+                                [(ngModel)]="model.hypertension" #hypertension="ngModel" required>
+                            <label for="checkHypertension1">Oui</label>
+                            <input class="form-ratio" type="radio" id="checkHypertension2" name="hypertension" value="0"
+                                [(ngModel)]="model.hypertension" #hypertension="ngModel">
+                            <label for="checkHypertension2">Non</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-sm-2 control-label">Avez-vous un niveau de choléstérol élévé (>2 g/l)
+                            ?</label>
+                        <div class="col-md-9 col-sm-10">
+                            <input class="form-ratio" type="radio" id="checkCholesterol1" name="cholesterol" value="1"
+                                [(ngModel)]="model.cholesterol" #cholesterol="ngModel" required>
+                            <label for="checkCholesterol1">Oui</label>
+                            <input class="form-ratio" type="radio" id="checkCholesterol2" name="cholesterol" value="0"
+                                [(ngModel)]="model.cholesterol" #cholesterol="ngModel">
+                            <label for="checkCholesterol2">Non</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-sm-2 control-label">Votre dernière vérification de niveau de
+                            choléstérol date-t-elle de moins de 5 ans?</label>
+                        <div class="col-md-9 col-sm-10">
+                            <input class="form-ratio" type="radio" id="checkCholCheck1" name="cholCheck" value="1"
+                                [(ngModel)]="model.cholCheck" #cholCheck="ngModel" required>
+                            <label for="checkCholCheck1">Oui</label>
+                            <input class="form-ratio" type="radio" id="checkCholCheck2" name="cholCheck" value="0"
+                                [(ngModel)]="model.cholCheck" #cholCheck="ngModel">
+                            <label for="checkCholCheck2">Non</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-sm-2 control-label" for="bmi">IMC :</label>
+                        <div class="col-md-9 col-sm-10">
+                            <input type="number" class="form-control" id="bmi" required name="bmi"
+                                [(ngModel)]="model.bmi" #bmi="ngModel">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-sm-2 control-label">Avez-vous fumé au moins 100 cigarettes dans votre
+                            vie (5 paquets) ?</label>
+                        <div class="col-md-9 col-sm-10">
+                            <input class="form-ratio" type="radio" id="checkSmoke1" name="smoke" value="1"
+                                [(ngModel)]="model.smoke" #smoke="ngModel" required>
+                            <label for="checkSmoke1">Oui</label>
+                            <input class="form-ratio" type="radio" id="checkSmoke2" name="smoke" value="0"
+                                [(ngModel)]="model.smoke" #smoke="ngModel">
+                            <label for="checkSmoke2">Non</label>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-sm-2 control-label">Avez-vous déjà eu un AVC ?</label>
+                        <div class="col-md-9 col-sm-10">
+                            <input class="form-ratio" type="radio" id="checkStroke1" name="stroke" value="1"
+                                [(ngModel)]="model.stroke" #stroke="ngModel" required>
+                            <label for="checkStroke1">Oui</label>
+                            <input class="form-ratio" type="radio" id="checkStroke2" name="stroke" value="0"
+                                [(ngModel)]="model.stroke" #stroke="ngModel">
+                            <label for="checkStroke2">Non</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-sm-2 control-label">Avez-vous déjà eu des problèmes cardiaque
+                            (maladie coronarienne ou infarctus) ?</label>
+                        <div class="col-md-9 col-sm-10">
+                            <input class="form-ratio" type="radio" id="checkHeart1" name="heart" value="1"
+                                [(ngModel)]="model.heart" #heart="ngModel" required>
+                            <label for="checkHeart1">Oui</label>
+                            <input class="form-ratio" type="radio" id="checkHeart2" name="heart" value="0"
+                                [(ngModel)]="model.heart" #heart="ngModel">
+                            <label for="checkHeart2">Non</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-sm-2 control-label">Avez-vous exercé une activité physique dans les
+                            30 derniers jours ?</label>
+                        <div class="col-md-9 col-sm-10">
+                            <input class="form-ratio" type="radio" id="checkPhysActivity1" name="physActivity" value="1"
+                                [(ngModel)]="model.physActivity" #physActivity="ngModel" required>
+                            <label for="checkPhysActivity1">Oui</label>
+                            <input class="form-ratio" type="radio" id="checkPhysActivity2" name="physActivity" value="0"
+                                [(ngModel)]="model.physActivity" #physActivity="ngModel">
+                            <label for="checkPhysActivity2">Non</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-sm-2 control-label">Mangez-vous au moins 1 fruit par jour ?</label>
+                        <div class="col-md-9 col-sm-10">
+                            <input class="form-ratio" type="radio" id="checkFruits1" name="fruits" value="1"
+                                [(ngModel)]="model.fruits" #fruits="ngModel" required>
+                            <label for="checkFruits1">Oui</label>
+                            <input class="form-ratio" type="radio" id="checkFruits2" name="fruits" value="0"
+                                [(ngModel)]="model.fruits" #fruits="ngModel">
+                            <label for="checkFruits2">Non</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-sm-2 control-label">Mangez-vous au moins 1 légume par jour ?</label>
+                        <div class="col-md-9 col-sm-10">
+                            <input class="form-ratio" type="radio" id="checkVeggies1" name="veggies" value="1"
+                                [(ngModel)]="model.veggies" #veggies="ngModel" required>
+                            <label for="checkVeggies1">Oui</label>
+                            <input class="form-ratio" type="radio" id="checkVeggies2" name="veggies" value="0"
+                                [(ngModel)]="model.veggies" #veggies="ngModel">
+                            <label for="checkVeggies2">Non</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-sm-2 control-label">Consommez-vous beaucoup d'alcool ( plus de 14
+                            verres par semaine pour un homme et 7 verres par semaine pour une femme) ?</label>
+                        <div class="col-md-9 col-sm-10">
+                            <input class="form-ratio" type="radio" id="checkAlcohol1" name="alcohol" value="1"
+                                [(ngModel)]="model.alcohol" #alcohol="ngModel" required>
+                            <label for="checkAlcohol1">Oui</label>
+                            <input class="form-ratio" type="radio" id="checkAlcohol2" name="alcohol" value="0"
+                                [(ngModel)]="model.alcohol" #alcohol="ngModel">
+                            <label for="checkAlcohol2">Non</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-sm-2 control-label">Avez-vous une couverture santé (assurance
+                            maladie, mutuelle ...) ?</label>
+                        <div class="col-md-9 col-sm-10">
+                            <input class="form-ratio" type="radio" id="checkHealthcare1" name="healthcare" value="1"
+                                [(ngModel)]="model.healthcare" #healthcare="ngModel" required>
+                            <label for="checkHealthcare1">Oui</label>
+                            <input class="form-ratio" type="radio" id="checkHealthcare2" name="healthcare" value="0"
+                                [(ngModel)]="model.healthcare" #healthcare="ngModel">
+                            <label for="checkHealthcare2">Non</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-sm-2 control-label">Y a-t-il eu un moment au cours de l'année où vous
+                            avez eu besoin de consulter un médecin, mais que vous n'avez pas pu en raison du coût
+                            ?</label>
+                        <div class="col-md-9 col-sm-10">
+                            <input class="form-ratio" type="radio" id="checkNoDocbcCost1" name="noDocbcCost" value="1"
+                                [(ngModel)]="model.noDocbcCost" #noDocbcCost="ngModel" required>
+                            <label for="checkNoDocbcCost1">Oui</label>
+                            <input class="form-ratio" type="radio" id="checkNoDocbcCost2" name="noDocbcCost" value="0"
+                                [(ngModel)]="model.noDocbcCost" #noDocbcCost="ngModel">
+                            <label for="checkNoDocbcCost2">Non</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-sm-2 control-label">Que diriez-vous de votre santé générale :</label>
+                        <div class="col-md-9 col-sm-10">
+                            <select class="form-control" [(ngModel)]="model.genHlth" name="genHlth" placeholder="select"
+                                required>
+                                <option *ngFor="let g of genHlths" [ngValue]="g.genHlthcode">{{g.genHlthname}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-sm-2 control-label" for="mentHlth">Pendant combien de jours au cours
+                            des 30 derniers jours votre santé mentale n'a-t-elle pas été bonne (stress, dépression,
+                            problèmes émotionnels) ?</label>
+                        <div class="col-md-9 col-sm-10">
+                            <input type="number" class="form-control" id="mentHlth" required name="mentHlth"
+                                [(ngModel)]="model.mentHlth" #mentHlth="ngModel">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-sm-2 control-label" for="physHlth">Pendant combien de jours au cours
+                            des 30 derniers jours votre santé physique n'a-t-elle pas été bonne (maladies physiques
+                            et/ou blessures) ?</label>
+                        <div class="col-md-9 col-sm-10">
+                            <input type="number" class="form-control" id="physHlth" required name="physHlth"
+                                [(ngModel)]="model.physHlth" #physHlth="ngModel">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-sm-2 control-label">Avez-vous des difficultés à marcher ou à monter
+                            des escaliers ?</label>
+                        <div class="col-md-9 col-sm-10">
+                            <input class="form-ratio" type="radio" id="checkDiffWalk1" name="diffWalk" value="1"
+                                [(ngModel)]="model.diffWalk" #diffWalk="ngModel" required>
+                            <label for="checkDiffWalk1">Oui</label>
+                            <input class="form-ratio" type="radio" id="checkDiffWalk2" name="diffWalk" value="0"
+                                [(ngModel)]="model.diffWalk" #diffWalk="ngModel">
+                            <label for="checkDiffWalk2">Non</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-sm-2 control-label">Genre :</label>
+                        <div class="col-md-9 col-sm-10">
+                            <input class="form-ratio" type="radio" id="checkGenre1" name="genre"
+                                [(ngModel)]="model.genre" name="genre" #genre="ngModel" value="1" required>
+                            <label for="checkGenre1">Homme</label>
+                            <input class="form-ratio" type="radio" id="checkGenre2" name="genre"
+                                [(ngModel)]="model.genre" name="genre" #genre="ngModel" value="0">
+                            <label for="checkGenre2">Femme</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-sm-2 control-label">Age : </label>
+                        <div class="col-md-9 col-sm-10">
+                            <select class="form-control" [(ngModel)]="model.age" name="age" placeholder="select"
+                                required>
+                                <option *ngFor="let a of ages" [ngValue]="a.agecode">{{a.agename}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-sm-2 control-label">Niveau d'étude : </label>
+                        <div class="col-md-9 col-sm-10">
+                            <select class="form-control" [(ngModel)]="model.education" name="education"
+                                placeholder="select" required>
+                                <option *ngFor="let e of educations" [ngValue]="e.educationcode">{{e.educationname}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-sm-2 control-label">Revenu annuel net : </label>
+                        <div class="col-md-9 col-sm-10">
+                            <select class="form-control" [(ngModel)]="model.income" name="income" placeholder="select"
+                                required>
+                                <option *ngFor="let i of incomes" [ngValue]="i.incomecode">{{i.incomename}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-3 col-sm-offset-2 col-sm-3">
+                          <button type="submit" class="btn btn-success" [disabled]="!diabeteForm.form.valid">Calculer</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
