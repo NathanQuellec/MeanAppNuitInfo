@@ -87,35 +87,91 @@ export class UserService {
   }
 
   informationsCardiaque(
-    gender: number,
-    age: number,
-    chest_pain: number,
-    pression: number,
-    chrolesterol: number,
-    glycemie: number,
-    electro: number,
-    rythme: number,
-    angine: number,
-    oldpeak: number,
-    pente: number
+    Sex: number,
+    Age: number,
+    ChestPainType: number,
+    RestingBP: number,
+    Cholesterol: number,
+    FastingBS: number,
+    RestingECG: number,
+    MaxHR: number,
+    ExerciseAngina: number,
+    Oldpeak: number,
+    ST_Slope: number
 
   ) {
     const body = new HttpParams()
-      .append('gender', gender)
-      .append('age', age)
-      .append('chest_pain', chest_pain)
-      .append('pression',pression)
-      .append('chrolesterol',chrolesterol)
-      .append('glycemie',glycemie)
-      .append('electro', electro)
-      .append('rythme',rythme)
-      .append('angine',angine)
-      .append('oldpeak',oldpeak)
-      .append('pente',pente);
+      .append('Sex', Sex)
+      .append('Age', Age)
+      .append('ChestPainType', ChestPainType)
+      .append('RestingBP',RestingBP)
+      .append('Cholesterol',Cholesterol)
+      .append('FastingBS',FastingBS)
+      .append('RestingECG', RestingECG)
+      .append('MaxHR',MaxHR)
+      .append('ExerciseAngina',ExerciseAngina)
+      .append('Oldpeak',Oldpeak)
+      .append('ST_Slope',ST_Slope);
 
     console.log(body);
     return this.http
       .post(environment.apiUrl + '/diagnostics/cardiaque', body, httpOptions)
+      .subscribe((result) => {
+        this.resultPost = JSON.stringify(result);
+        console.log(`resp : ${this.resultPost}`);
+      });
+  }
+
+  informationsDiabete(
+    HighBP: number,
+    HighChol: number,
+    CholCheck: number,
+    BMI: number,
+    Smoker: number,
+    Stroke: number,
+    HeartDiseaseorAttack: number,
+    PhysActivity: number,
+    Fruits: number,
+    Veggies: number,
+    HvyAlcoholConsump: number,
+    AnyHealthcare: number,
+    NoDocbcCost: number,
+    GenHlth:number,
+    MentHlth: number,
+    PhysHlth: number,
+    DiffWalk: number,
+    Sex: number,
+    Age: number,
+    Education: number,
+    Income: number
+
+  ) {
+    const body = new HttpParams()
+      .append('HighBP', HighBP)
+      .append('HighChol', HighChol)
+      .append('CholCheck', CholCheck)
+      .append('BMI', BMI)
+      .append('Smoker', Smoker)
+      .append('Stroke', Stroke)
+      .append('HeartDiseaseorAttack', HeartDiseaseorAttack)
+      .append('PhysActivity', PhysActivity)
+      .append('Fruits', Fruits)
+      .append('Veggies', Veggies)
+      .append('HvyAlcoholConsump', HvyAlcoholConsump)
+      .append('AnyHealthcare', AnyHealthcare)
+      .append('NoDocbcCost', NoDocbcCost)
+      .append('GenHlth', GenHlth)
+      .append('MentHlth', MentHlth)
+      .append('PhysHlth', PhysHlth)
+      .append('DiffWalk', DiffWalk)
+      .append('Sex', Sex)
+      .append('Age', Age)
+      .append('Education', Education)
+      .append('Income', Income);
+
+    console.log(body);
+    return this.http
+      .post(environment.apiUrl + '/diagnostics/diabete', body, httpOptions)
       .subscribe((result) => {
         this.resultPost = JSON.stringify(result);
         console.log(`resp : ${this.resultPost}`);

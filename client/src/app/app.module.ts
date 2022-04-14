@@ -25,6 +25,8 @@ import { NgChartsModule } from 'ng2-charts';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CardiaqueComponent } from './modules/resultatsMaladies/cardiaque/cardiaque.component';
 import { FormulaireCardiaqueComponent } from './formulaire-cardiaque/formulaire-cardiaque.component';
+import { FormulaireDiabeteComponent } from './formulaire-diabete/formulaire-diabete.component';
+import { DiabeteComponent } from './modules/resultatsMaladies/diabete/diabete.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { FormulaireCardiaqueComponent } from './formulaire-cardiaque/formulaire-
     PageUtilisateurComponent,
     AvcComponent,
     CardiaqueComponent,
-    FormulaireCardiaqueComponent
+    FormulaireCardiaqueComponent,
+    FormulaireDiabeteComponent,
+    DiabeteComponent
   ],
   imports: [
     BrowserModule,

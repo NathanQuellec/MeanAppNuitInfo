@@ -7,6 +7,8 @@ import { FormulaireAvcComponent } from './formulaire-avc/formulaire-avc.componen
 import { AvcComponent } from './modules/resultatsMaladies/avc/avc.component';
 import { CardiaqueComponent } from './modules/resultatsMaladies/cardiaque/cardiaque.component';
 import { FormulaireCardiaqueComponent } from './formulaire-cardiaque/formulaire-cardiaque.component';
+import { FormulaireDiabeteComponent } from './formulaire-diabete/formulaire-diabete.component';
+import { DiabeteComponent } from './modules/resultatsMaladies/diabete/diabete.component';
 
 const routes: Routes = [
   {
@@ -29,6 +31,12 @@ const routes: Routes = [
   },
   {
     path: "Informations/Cardiaque", component: FormulaireCardiaqueComponent
+  },
+  {
+    path: "Informations/Diabete", component: FormulaireDiabeteComponent
+  },
+  {
+    path: "Maladies/Diabete", component: DiabeteComponent
   }
 ];
 
