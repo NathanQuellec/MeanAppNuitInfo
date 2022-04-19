@@ -177,4 +177,8 @@ export class UserService {
         console.log(`resp : ${this.resultPost}`);
       });
   }
+
+  getAVCResultsModelHistory(): Observable<Array<AvcResults>> {
+    return this.http.get<Array<AvcResults>>(environment.apiUrl + '/diagnostics/avc/history');
+  }
 }
