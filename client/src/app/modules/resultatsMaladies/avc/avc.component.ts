@@ -19,17 +19,13 @@ export class AvcComponent implements OnInit {
   avcResults: AvcResults | any;
   avcScore: Number = 0;
 
-  public type: ChartType = 'bar';
+  public type: ChartType = 'line';
 
-  public barChartLabel: string[] = [];
-
-  public backgroundColor: string[] = [];
-
-  public borderColor: string[] = [];
+  public lineChartLabel: string[] = [];
 
   public pointHoverBackgroundColor: string[] = [];
 
-  public dataset: ChartData<'bar'> = {
+  public dataset: ChartData<'line'> = {
     labels: [],
     datasets: [
       {
@@ -38,7 +34,7 @@ export class AvcComponent implements OnInit {
     ],
   };
 
-  public barChartOptions: ChartConfiguration['options'] = {
+  public lineChartOptions: ChartConfiguration['options'] = {
     responsive: true,
   };
 
@@ -55,28 +51,18 @@ export class AvcComponent implements OnInit {
     this.user
       .getAVCResultsModelHistory()
       .subscribe((avcResultsHistory: Array<AvcResults>) => {
-        
         avcResultsHistory.forEach((avc) => {
-          history.push(Number(avc.score));
-          if (avc.prediction) {
-            this.backgroundColor.push('rgba(255, 99, 132, 0.2)');
-            this.borderColor.push('rgba(255, 99, 132, 1)');
-          } else {
-            this.backgroundColor.push('rgba(54, 162, 235, 0.2)');
-            this.borderColor.push('rgba(54, 162, 235, 1)');
-          }
-          this.barChartLabel.push(avc.createdAt.slice(0,10));
+          history.unshift(Number(avc.score));
+          this.lineChartLabel.unshift(avc.createdAt.slice(0, 10));
         });
 
         console.log(history);
         this.dataset = {
-          labels: this.barChartLabel,
+          labels: this.lineChartLabel,
           datasets: [
             {
               label: 'risque',
               data: history,
-              borderColor: this.borderColor,
-              backgroundColor: this.backgroundColor,
               borderWidth: 1,
             },
           ],
