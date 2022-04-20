@@ -1,11 +1,11 @@
 
 <h1>Vos risques d'AVC</h1>
 
-<a class="calcul" href="/Informations/AVC">Calculer vos risques</a>
+<a class="calcul" routerLink="/Informations/AVC">Calculer vos risques</a>
 &nbsp;&nbsp;&nbsp;
 <div *ngIf="avcResults">
   Après analyse de vos données, il semblerait que le risque que vous soyez sujet
-  à avoir une attaque cardiaque est de {{ avcScore }} %
+  à un avc est de {{ avcScore }} %
 </div>
 <br><br>
 <div class="chart-container">

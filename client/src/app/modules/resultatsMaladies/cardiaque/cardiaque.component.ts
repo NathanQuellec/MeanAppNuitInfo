@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { UserCardiaque } from 'src/app/user-cardiaque';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ChartConfiguration, ChartData, ChartType } from 'chart.js';
+import { Results } from 'src/app/interface/Results';
 
 @Component({
   selector: 'app-cardiaque',
@@ -22,13 +24,85 @@ export class CardiaqueComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getCardiaqueResultsModelFromAPI();
+    this.getCardiaqueResultsModelHistoryFromAPI();
   }
 
-  openInfoCardiaque(content: any) {
+  cardiaqueResults: Results | any;
+  cardiaqueScore: Number = 0;
+
+  
+  public type: ChartType = 'line';
+
+  public lineChartLabel: string[] = [];
+
+  public pointHoverBackgroundColor: string[] = [];
+
+  public dataset: ChartData<'line'> = {
+    labels: [],
+    datasets: [
+      {
+        data: [],
+      },
+    ],
+  };
+
+  public lineChartOptions: ChartConfiguration['options'] = {    
+    scales: {
+      y: {
+        suggestedMin: 0,
+        suggestedMax: 1,
+      }
+    }
+};
+
+getCardiaqueResultsModelFromAPI() {
+  this.user.getCardiaqueResultsModel().subscribe((result: Results) => {
+    this.cardiaqueResults = result;
+    this.cardiaqueScore = Number(result.score) * 100;
+    console.log(this.cardiaqueResults);
+  });
+}
+
+getCardiaqueResultsModelHistoryFromAPI() {
+  let history: number[] = [];
+  let lim: number[] = [];
+  this.user
+    .getCardiaqueResultsModelHistory()
+    .subscribe((cardiaqueResultsHistory: Array<Results>) => {
+      cardiaqueResultsHistory.forEach((cardiaque) => {
+        history.unshift(Number(cardiaque.score));
+        lim.push(0.5);
+        this.lineChartLabel.unshift(cardiaque.createdAt.slice(0, 10));
+      });
+
+      console.log(history);
+      this.dataset = {
+        labels: this.lineChartLabel,
+        datasets: [
+          {
+            label: 'Limite',
+            data: lim
+          },
+          {
+            label: 'risque',
+            data: history
+          }
+        ],
+      };
+    });
+}
+
+  /*openInfoCardiaque(content: any) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
   }
 
-  /*infoCardiaque(cardiaqueForm: any) {
+
+  submitted = false;
+
+  onSubmit() { this.submitted = true; }
+
+  infoCardiaque(cardiaqueForm: any) {
     console.log(cardiaqueForm)
 
     let data = cardiaqueForm;
@@ -60,17 +134,13 @@ export class CardiaqueComponent implements OnInit {
     );
     console.log(result);
     this.route.navigate(['/Maladies/Cardiaque']);
-  }*/
+  }
 
   onOptionsSelected(value: string) {
     console.log('the selected value is ' + value);
   }
-
-  submitted = false;
-
-  onSubmit() { this.submitted = true; }
-
-  /*chests = [
+  
+  chests = [
     { chestname: 'Aucune', chestcode: 0 },
     { chestname: 'Angine de poitrine atypique', chestcode: 1 },
     { chestname: 'Autre', chestcode: 2 },

@@ -1,4 +1,4 @@
-import { AvcResults } from './../../../interface/AvcResults';
+import { Results } from '../../../interface/Results';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { ChartConfiguration, ChartData, ChartType } from 'chart.js';
@@ -16,7 +16,7 @@ export class AvcComponent implements OnInit {
 
   constructor(private user: UserService) { }
 
-  avcResults: AvcResults | any;
+  avcResults: Results | any;
   avcScore: Number = 0;
 
   public type: ChartType = 'line';
@@ -44,7 +44,7 @@ export class AvcComponent implements OnInit {
 };
 
 getAVCResultsModelFromAPI() {
-  this.user.getAVCResultsModel().subscribe((result: AvcResults) => {
+  this.user.getAVCResultsModel().subscribe((result: Results) => {
     this.avcResults = result;
     this.avcScore = Number(result.score) * 100;
     console.log(this.avcResults);
@@ -56,7 +56,7 @@ getAVCResultsModelHistoryFromAPI() {
   let lim: number[] = [];
   this.user
     .getAVCResultsModelHistory()
-    .subscribe((avcResultsHistory: Array<AvcResults>) => {
+    .subscribe((avcResultsHistory: Array<Results>) => {
       avcResultsHistory.forEach((avc) => {
         history.unshift(Number(avc.score));
         lim.push(0.5);

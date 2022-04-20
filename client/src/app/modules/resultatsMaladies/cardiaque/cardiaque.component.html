@@ -6,8 +6,21 @@
     </div>
 </div>-->
 
-<a href="/Informations/Cardiaque">Calculer vos risques</a>
-
+<a class="calcul" routerLink="/Informations/Cardiaque">Calculer vos risques</a>
+&nbsp;&nbsp;&nbsp;
+<div *ngIf="cardiaqueResults">
+  Après analyse de vos données, il semblerait que le risque que vous soyez sujet
+  à des maladies cardiaque est de {{ cardiaqueScore }} %
+</div>
+<br><br>
+<div class="chart-container">
+  <h3>Evolution de vos risques de maladies cardiaque dans le temps</h3>
+<br>
+  <p>Si votre taux de risque se situe au-dessus de la ligne rouge, vos risque de maladies sont assez important.</p>
+  <br>
+  <canvas baseChart [data]="dataset" [labels]="lineChartLabel" [options]="lineChartOptions" [type]="type">
+  </canvas>
+</div>
 
 <ng-template #contentInfoCardiaque let-modal>
     <div class="modal-header">
