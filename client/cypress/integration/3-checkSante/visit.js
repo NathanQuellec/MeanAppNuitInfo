@@ -54,11 +54,4 @@ describe('Visite du site', () => {
       cy.contains('Bilan général').click({force: true})
       cy.url().should('include', '/Bilan')
     })
-
-    it("Page déconnexion", () => {
-      cy.visit('http://localhost:4200')
-
-      cy.contains('Bilan général').click({force: true})
-      cy.url().should('include', '/Deconnexion')
-    })
   })
