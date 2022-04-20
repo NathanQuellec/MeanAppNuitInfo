@@ -6,3 +6,9 @@ h1{
 a, div{
     font-size:150%; 
 }
+
+.chart-container{
+    width: 80%;
+    height:80%;
+    margin: 0 auto;
+}
