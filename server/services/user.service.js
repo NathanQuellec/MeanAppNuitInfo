@@ -58,6 +58,68 @@ export default class UserService {
     }
   }
 
+  static async sendHeartInformationToFlask(heartData) {
+    try {
+      const array = [
+        heartData.Age,
+        heartData.Sex,
+        heartData.ChestPainType,
+        heartData.RestingBP,
+        heartData.Cholesterol,
+        heartData.FastingBS,
+        heartData.RestingECG,
+        heartData.MaxHR,
+        heartData.ExerciseAngina,
+        heartData.Oldpeak,
+        heartData.ST_Slope,
+      ];
+      console.log(`Data sent to flask : ${array}`);
+      const response = await axios.post("http://flask:5000/heart/test", {
+        value: array,
+      });
+      console.log(response.data);
+      return response.data;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  static async sendDiabeteInformationToFlask(diabeteData) {
+    try {
+      const array = [
+        diabeteData.HighBP,
+        diabeteData.HighChol,
+        diabeteData.CholCheck,
+        diabeteData.BMI,
+        diabeteData.Smoker,
+        diabeteData.Stroke,
+        diabeteData.HeartDiseaseorAttack,
+        diabeteData.PhysActivity,
+        diabeteData.Fruits,
+        diabeteData.Veggies,
+        diabeteData.HvyAlcoholConsump,
+        diabeteData.AnyHealthcare,
+        diabeteData.NoDocbcCost,
+        diabeteData.GenHlth,
+        diabeteData.MentHlth,
+        diabeteData.PhysHlth,
+        diabeteData.DiffWalk,
+        diabeteData.Sex,
+        diabeteData.Age,
+        diabeteData.Education,
+        diabeteData.Income,
+      ];
+      console.log(`Data sent to flask : ${array}`);
+      const response = await axios.post("http://flask:5000/diabete/test", {
+        value: array,
+      });
+      console.log(response.data);
+      return response.data;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   static async registerAVCModelResultsToMongo(avcData) {
     try {
       console.log(
@@ -68,6 +130,38 @@ export default class UserService {
         score: avcData.score,
       };
       const mongoResponse = await new AvcResults(newAVCResults).save();
+      return mongoResponse;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  static async registerHeartModelResultsToMongo(heartData) {
+    try {
+      console.log(
+        `saving to mongo : ${heartData.prediction} and ${heartData.score}`
+      );
+      const newHeartResults = {
+        prediction: heartData.prediction,
+        score: heartData.score,
+      };
+      const mongoResponse = await new HeartResults(newHeartResults).save();
+      return mongoResponse;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  static async registerDiabeteModelResultsToMongo(diabeteData) {
+    try {
+      console.log(
+        `saving to mongo : ${diabeteData.prediction} and ${diabeteData.score}`
+      );
+      const newDiabeteResults = {
+        prediction: diabeteData.prediction,
+        score: diabeteData.score,
+      };
+      const mongoResponse = await new DiabeteResults(newDiabeteResults).save();
       return mongoResponse;
     } catch (error) {
       console.error(error);
@@ -101,9 +195,27 @@ export default class UserService {
     }
   }
 
+  static async getDiabeteModelResultsHistory() {
+    try {
+      const results = await DiabeteResults.find().sort({createdAt: -1}).limit(5);
+      return results;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   static async getHeartModelResults() {
     try {
       const results = await HeartResults.findOne().sort({createdAt: -1});
+      return results;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  static async getHeartModelResultsHistory() {
+    try {
+      const results = await HeartResults.find().sort({createdAt: -1}).limit(5);
       return results;
     } catch (error) {
       console.log(error);

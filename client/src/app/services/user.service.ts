@@ -101,8 +101,8 @@ export class UserService {
 
   ) {
     const body = new HttpParams()
-      .append('Sex', Sex)
       .append('Age', Age)
+      .append('Sex', Sex)
       .append('ChestPainType', ChestPainType)
       .append('RestingBP',RestingBP)
       .append('Cholesterol',Cholesterol)
