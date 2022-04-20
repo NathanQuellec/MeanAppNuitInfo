@@ -5,7 +5,7 @@
 &nbsp;&nbsp;&nbsp;
 <div *ngIf="diabeteResults">
   Après analyse de vos données, il semblerait que le risque que vous soyez sujet
-  au diabète est de {{ diabeteScore }} %
+  au diabète est de {{ diabeteScore.toFixed(2) }} %
 </div>
 <br><br>
 <div class="chart-container">
