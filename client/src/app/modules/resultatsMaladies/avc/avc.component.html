@@ -1,15 +1,18 @@
 
 <h1>Vos risques d'AVC</h1>
 
-<a href="/Informations/AVC">Calculer vos risques d'AVC</a>
-
-
+<a class="calcul" routerLink="/Informations/AVC">Calculer vos risques</a>
+&nbsp;&nbsp;&nbsp;
 <div *ngIf="avcResults">
   Après analyse de vos données, il semblerait que le risque que vous soyez sujet
-  à avoir une attaque cardiaque est de {{ avcScore }} %
+  à un avc est de {{ avcScore }} %
 </div>
-
+<br><br>
 <div class="chart-container">
+  <h3>Evolution de vos risques d'AVC dans le temps</h3>
+<br>
+  <p>Si votre taux de risque se situe au-dessus de la ligne rouge, vos risque d'AVC sont assez important.</p>
+  <br>
   <canvas baseChart [data]="dataset" [labels]="lineChartLabel" [options]="lineChartOptions" [type]="type">
   </canvas>
 </div>

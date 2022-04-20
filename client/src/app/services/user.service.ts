@@ -1,4 +1,4 @@
-import { AvcResults } from './../interface/AvcResults';
+import { Results } from '../interface/Results';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -82,8 +82,8 @@ export class UserService {
       });
   }
 
-  getAVCResultsModel(): Observable<AvcResults> {
-    return this.http.get<AvcResults>(environment.apiUrl + '/diagnostics/avc');
+  getAVCResultsModel(): Observable<Results> {
+    return this.http.get<Results>(environment.apiUrl + '/diagnostics/avc');
   }
 
   informationsCardiaque(
@@ -120,6 +120,14 @@ export class UserService {
         this.resultPost = JSON.stringify(result);
         console.log(`resp : ${this.resultPost}`);
       });
+  }
+
+  getCardiaqueResultsModel(): Observable<Results> {
+    return this.http.get<Results>(environment.apiUrl + '/diagnostics/cardiaque');
+  }
+
+  getCardiaqueResultsModelHistory(): Observable<Array<Results>> {
+    return this.http.get<Array<Results>>(environment.apiUrl + '/diagnostics/cardiaque/history');
   }
 
   informationsDiabete(
@@ -178,7 +186,15 @@ export class UserService {
       });
   }
 
-  getAVCResultsModelHistory(): Observable<Array<AvcResults>> {
-    return this.http.get<Array<AvcResults>>(environment.apiUrl + '/diagnostics/avc/history');
+  getDiabeteResultsModel(): Observable<Results> {
+    return this.http.get<Results>(environment.apiUrl + '/diagnostics/diabete');
+  }
+
+  getDiabeteResultsModelHistory(): Observable<Array<Results>> {
+    return this.http.get<Array<Results>>(environment.apiUrl + '/diagnostics/diabete/history');
+  }
+
+  getAVCResultsModelHistory(): Observable<Array<Results>> {
+    return this.http.get<Array<Results>>(environment.apiUrl + '/diagnostics/avc/history');
   }
 }

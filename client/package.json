@@ -26,8 +26,10 @@
     "@popperjs/core": "^2.10.2",
     "bootstrap": "^5.1.3",
     "chart.js": "^3.7.1",
+    "chartjs-plugin-annotation": "^1.4.0",
     "hammerjs": "^2.0.8",
     "ng2-charts": "^3.0.8",
+    "react-chartjs-2": "^4.1.0",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

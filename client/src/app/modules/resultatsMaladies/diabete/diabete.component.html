@@ -1,3 +1,18 @@
+
 <h1>Vos risques de diabète</h1>
 
-<a href="/Informations/Diabete">Calculer vos risques de Diabète</a>
+<a class="calcul" routerLink="/Informations/Diabete">Calculer vos risques</a>
+&nbsp;&nbsp;&nbsp;
+<div *ngIf="diabeteResults">
+  Après analyse de vos données, il semblerait que le risque que vous soyez sujet
+  au diabète est de {{ diabeteScore }} %
+</div>
+<br><br>
+<div class="chart-container">
+  <h3>Evolution de vos risques de diabète dans le temps</h3>
+<br>
+  <p>Si votre taux de risque se situe au-dessus de la ligne rouge, vos risque de diabète sont assez important.</p>
+  <br>
+  <canvas baseChart [data]="dataset" [labels]="lineChartLabel" [options]="lineChartOptions" [type]="type">
+  </canvas>
+</div>

@@ -10,12 +10,12 @@
         </button>
         
       </div>
-      <a class="navbar-brand" href="Accueil">CheckSanté</a>
+      <a class="navbar-brand" routerLink="Accueil">CheckSanté</a>
       <div class="collapse navbar-collapse" id="navbar-collapse-1">
         
         <ul class="nav navbar-nav navbar-left">
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Maladies</a>
+            <a class="dropdown-toggle" data-toggle="dropdown">Maladies</a>
             <ul class="dropdown-menu">
               <li><a routerLink="Maladies/AVC">AVC</a></li>
               <li><a routerLink="Maladies/Cardiaque">Maladies cardiaques</a></li>
@@ -24,19 +24,12 @@
           </li>
         </ul>
         <ul class="nav navbar-nav navbar-right mr-auto">
-          <li><a href="#">Bilan général</a></li>
+          <li><a routerLink="Profile">Bilan général</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right mr-auto">
-          <li class="dropdown">
-            <a href="Informations" class="dropdown-toggle" data-toggle="dropdown">Mes données</a>
-            <ul class="dropdown-menu">
-              <li><a href="Informations/AVC">AVC</a></li>
-              <li><a href="Informations/Cardiaque">Cardiaque</a></li>
-            </ul>
+          <li>
+            <a routerLink="Informations">Mes données</a>
           </li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right mr-auto">
-          <li><a href="Profil">Profil</a></li>
         </ul>
       </div>
     </div>
