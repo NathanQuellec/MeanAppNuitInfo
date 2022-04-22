@@ -22,6 +22,11 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NgChartsModule } from 'ng2-charts';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CardiaqueComponent } from './modules/resultatsMaladies/cardiaque/cardiaque.component';
+import { FormulaireCardiaqueComponent } from './formulaire-cardiaque/formulaire-cardiaque.component';
+import { FormulaireDiabeteComponent } from './formulaire-diabete/formulaire-diabete.component';
+import { DiabeteComponent } from './modules/resultatsMaladies/diabete/diabete.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +37,11 @@ import { NgChartsModule } from 'ng2-charts';
     FormulaireAvcComponent,
     HeaderComponent,
     PageUtilisateurComponent,
-    AvcComponent
+    AvcComponent,
+    CardiaqueComponent,
+    FormulaireCardiaqueComponent,
+    FormulaireDiabeteComponent,
+    DiabeteComponent
   ],
   imports: [
     BrowserModule,
@@ -50,6 +59,7 @@ import { NgChartsModule } from 'ng2-charts';
     CommonModule,
     FormsModule,
     NgChartsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,133 @@
+<!--<div class="container">-->
+    <h1>Vos risques de maladies cardiaques</h1>
+     <!--  <div class="col">
+        <button class="btn btn-md btn-outline-primary" (click)="openInfoCardiaque(contentInfoCardiaque)"><i
+                class="fa fa-plus"></i>Calculer vos risques</button>&nbsp;
+    </div>
+</div>-->
+
+<a class="calcul" routerLink="/Informations/Cardiaque">Calculer vos risques</a>
+&nbsp;&nbsp;&nbsp;
+<div *ngIf="cardiaqueResults">
+  Après analyse de vos données, il semblerait que le risque que vous soyez sujet
+  à des maladies cardiaque est de {{ cardiaqueScore.toFixed(2) }} %
+</div>
+<br><br>
+<div class="chart-container">
+  <h3>Evolution de vos risques de maladies cardiaque dans le temps</h3>
+<br>
+  <p>Si votre taux de risque se situe au-dessus de la ligne rouge, vos risque de maladies sont assez important.</p>
+  <br>
+  <canvas baseChart [data]="dataset" [labels]="lineChartLabel" [options]="lineChartOptions" [type]="type">
+  </canvas>
+</div>
+
+<ng-template #contentInfoCardiaque let-modal>
+    <div class="modal-header">
+        <h2 class="modal-title">Calcul du risque de maladies cardiaques</h2>
+        <p>Veillez remplir les champs suivants pour calculer votre risque de maladies cardiaques</p>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+   <!-- <div class="modal-body">
+        <form (ngSubmit)="infoCardiaque(cardiaqueForm)" #cardiaqueForm="ngForm">
+            <div class="form-group">
+                <label class="col-md-3 col-sm-2 control-label">Genre :</label>
+                <div class="col-md-9 col-sm-10">
+                    <input class="form-ratio" type="radio" id="checkGenre1" name="genre" [(ngModel)]="model.gender"
+                        name="gender" #gender="ngModel" value="1" required>
+                    <label for="checkGenre1">Homme</label>
+                    <input class="form-ratio" type="radio" id="checkGenre2" name="genre" [(ngModel)]="model.gender"
+                        name="gender" #gender="ngModel" value="0">
+                    <label for="checkGenre2">Femme</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 col-sm-2 control-label" for="age">Age :</label>
+                <div class="col-md-9 col-sm-10">
+                    <input type="number" class="form-control" id="age" required [(ngModel)]="model.age" name="age"
+                        #age="ngModel">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 col-sm-2 control-label">Douleur à la poitrine :</label>
+                <div class="col-md-9 col-sm-10">
+                    <select class="form-control" [(ngModel)]="model.chest_pain" name="chest_pain" placeholder="select" required>
+                      <option *ngFor="let c of chests" [ngValue]="c.chestcode">{{c.chestname}}</option>
+                  </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 col-sm-2 control-label" for="pression" >Pression artérielle (en mm Hg):</label>
+                <div class="col-md-9 col-sm-10">
+                  <input type="number" class="form-control" id="pression" placeholder="0" required name="pression" [(ngModel)]="model.pression"
+                  #pression="ngModel">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 col-sm-2 control-label" for="chroléstérol" >Chroléstérol (en mm/dL):</label>
+                <div class="col-md-9 col-sm-10">
+                  <input type="number" class="form-control" id="chroléstérol" placeholder="0" required name="chroléstérol" [(ngModel)]="model.chroléstérol"
+                  #pression="ngModel">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 col-sm-2 control-label" >Niveau de glycémie :</label>
+                <div class="col-md-9 col-sm-10">
+                  <input class="form-ratio" type="radio" id="checkGlycémie1" name="glycémie" 
+                  [(ngModel)]="model.glycémie" name="glycémie"
+                  #residence="ngModel" value="1" required>
+                  <label for="checkGlycémie1">Supérieur à 120</label>
+                  <input class="form-ratio" type="radio" id="checkGlycémie2" name="glycémie"
+                  [(ngModel)]="model.glycémie" name="glycémie"
+                  #residence="ngModel" value="0">
+                  <label for="checkGlycémie2">Inférieur ou égal à 120</label>
+                </div>
+              </div>
+            <div class="form-group">
+                <label class="col-md-3 col-sm-2 control-label">Résultat électrocardiogramme :</label>
+                <div class="col-md-9 col-sm-10">
+                    <select class="form-control" [(ngModel)]="model.electro" name="electro" placeholder="select" required>
+                      <option *ngFor="let e of electros" [ngValue]="e.electrocode">{{e.electroname}}</option>
+                  </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 col-sm-2 control-label" for="rythme" >Rythme cardiaque max :</label>
+                <div class="col-md-9 col-sm-10">
+                  <input type="number" class="form-control" id="rythme" placeholder="0" required name="rythme" [(ngModel)]="model.rythme"
+                  #pression="ngModel">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 col-sm-2 control-label" >Angine de poitrine induite par l'exercice physique :</label>
+                <div class="col-md-9 col-sm-10">
+                  <input class="form-ratio" type="radio" id="checkAngine1" name="angine" 
+                  [(ngModel)]="model.angine" name="angine"
+                  #angine="ngModel" value="1" required>
+                  <label for="checkAngine1">Oui</label>
+                  <input class="form-ratio" type="radio" id="checkAngine2" name="angine"
+                  [(ngModel)]="model.angine" name="angine"
+                  #angine="ngModel" value="0">
+                  <label for="checkGAngine2">Non</label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-3 col-sm-2 control-label" for="oldpeak" >Oldpeak :</label>
+                <div class="col-md-9 col-sm-10">
+                  <input type="number" class="form-control" id="oldpeak" placeholder="0" required name="oldpeak" [(ngModel)]="model.oldpeak"
+                  #oldpeak="ngModel">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 col-sm-2 control-label">Pente de la pointe du segment ST à l'effort :</label>
+                <div class="col-md-9 col-sm-10">
+                    <select class="form-control" [(ngModel)]="model.pente" name="pente" placeholder="select" required>
+                      <option *ngFor="let p of pentes" [ngValue]="p.pentecode">{{p.pentename}}</option>
+                  </select>
+                </div>
+            </div>
+            <button data-dismiss="modal" type="submit" class="btn btn-success" [disabled]="!cardiaqueForm.form.valid"
+                onClick="window.location.reload();">Calculer</button>
+        </form>
+    </div> -->
+</ng-template>

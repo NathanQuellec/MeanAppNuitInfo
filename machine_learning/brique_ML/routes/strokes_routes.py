@@ -11,7 +11,7 @@ url_prefix = "/strokes"
 blueprint = Blueprint("strokes", __name__)
 
 # Import the model
-model_reglog_smote = joblib.load(filename='brique_ML/ML_models/logreg_smote.sav')
+model_reglog_smote = joblib.load(filename='brique_ML/ML_models/model-stroke-forest-undersample.sav')
 
 @blueprint.route("/test", methods=["POST", "GET"])
 def strokes_test():
@@ -30,11 +30,12 @@ def strokes_test():
         # Prediction par le modèle
         prediction = model_reglog_smote.predict_proba(df)
         # Recupération de la prédiction et de son score
-        resultat = np.argmax(prediction)
-        score = np.amax(prediction)
+        #resultat = np.argmax(prediction)
+        #score = np.amax(prediction)
+        score = prediction[0][1]
         # Construction du message de retour
         message = {
-            "prediction":str(resultat),
+            "prediction":"1",
             "score":str(score)
         }
         return jsonify(message), 200
