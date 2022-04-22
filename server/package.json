@@ -6,12 +6,15 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node --experimental-vm-modules node_modules/.bin/jest --coverage",
+    "sonar": "node sonar-project.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/cli": "^7.17.6",
     "axios": "^0.26.1",
+    "babel-preset-env": "^1.7.0",
     "body-parser": "^1.19.2",
     "compression": "^1.7.4",
     "config": "^3.3.6",
@@ -19,13 +22,17 @@
     "events": "^3.3.0",
     "express": "^4.17.1",
     "helmet": "^5.0.2",
+    "jest": "^27.5.1",
     "mongod": "^2.0.0",
     "mongodb": "^4.2.1",
     "mongoose": "^6.0.14",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "superagent": "^7.1.2",
+    "supertest": "^6.2.2",
+    "watchpack": "^2.3.1"
   },
   "devDependencies": {
-    "eslint": "^8.11.0",
+    "eslint": "^8.13.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.25.4"
   }
