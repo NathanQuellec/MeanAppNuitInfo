@@ -10,7 +10,7 @@ export default class UserController {
 
 // Methode pour tester 2
   static async test_avec_nom(req, res) {
-    const p = req.params.nom ?? "world";
+    const nom = req.params.nom ?? "world";
     res.status(200).send(`hello ${nom}!`);
   }
 
@@ -20,7 +20,7 @@ export default class UserController {
       const userRegistration = await UserService.registerUserInformation(
         req.body
       );
-      res.json(userRegistration);
+      res.status(200).send("Enregistrement utilisateur en base réussi");
     } catch (error) {
       res.status(500).json({ error: error });
     }
@@ -48,10 +48,12 @@ export default class UserController {
       const resultsRetrieval = await UserService.getAVCModelResults();
       if (!resultsRetrieval) {
         res.status(404).json("Not found");
+        return ;
       }
       res.json(resultsRetrieval);
+      return;
     } catch (error) {
-      res.status(500).json({ error: error });
+      res.status(500).send({ err : error });
     }
   }
 }
