@@ -11,6 +11,10 @@ export const UserRoutes = (app) => {
 
   app.get("/diagnostics/avc", UserController.apiGetAVCModelResults);
 
+  app.get("/test", UserController.test_simple);
+
+  app.get("/test/:nom", UserController.test_avec_nom);
+
   app.get("/diagnostics/avc/history", UserController.apiGetAVCModelResultsHistory);
 
   app.get("/diagnostics/diabete", UserController.apiGetDiabeteModelResults);
