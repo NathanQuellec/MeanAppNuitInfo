@@ -30,11 +30,12 @@ def strokes_test():
         # Prediction par le modèle
         prediction = model_heart.predict_proba(df)
         # Recupération de la prédiction et de son score
-        resultat = np.argmax(prediction)
-        score = np.amax(prediction)
+        #resultat = np.argmax(prediction)
+        #score = np.amax(prediction)
+        score = prediction[0][1]
         # Construction du message de retour
         message = {
-            "prediction":str(resultat),
+            "prediction":"1",
             "score":str(score)
         }
         return jsonify(message), 200
