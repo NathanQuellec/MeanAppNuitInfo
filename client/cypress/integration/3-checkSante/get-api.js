@@ -25,8 +25,24 @@ describe('Test API GET', () => {
             })
         })
     })
-    it('API Heart Attack', () => {
-        cy.request('GET', 'http://localhost:3000/diagnostics/heart').then((response) => {
+    it('API History Diabete', () => {
+        cy.request('GET', 'http://localhost:3000/diagnostics/diabete/history').then((response) => {
+            expect(response.status).to.eq(200)
+            expect(response.headers).to.include({
+                'content-type': 'application/json; charset=utf-8',
+            })
+        })
+    })
+    it('API Cardiaque', () => {
+        cy.request('GET', 'http://localhost:3000/diagnostics/cardiaque').then((response) => {
+            expect(response.status).to.eq(200)
+            expect(response.headers).to.include({
+                'content-type': 'application/json; charset=utf-8',
+            })
+        })
+    })
+    it('API History Cardiaque', () => {
+        cy.request('GET', 'http://localhost:3000/diagnostics/cardiaque/history').then((response) => {
             expect(response.status).to.eq(200)
             expect(response.headers).to.include({
                 'content-type': 'application/json; charset=utf-8',
