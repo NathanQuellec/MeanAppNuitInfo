@@ -12,20 +12,12 @@ describe('Visite du site', () => {
       cy.url().should('include', '/Accueil')
     })
 
-    it("Page profil", () => {
-      cy.visit('http://localhost:4200')
-
-      cy.contains("Profil").click({force: true})
-      cy.url().should('include', '/Profil')
-    })
-
     it("Page formulaire personnel", () => {
       cy.visit('http://localhost:4200')
 
       cy.contains("Mes données").click({force: true})
       cy.url().should('include', '/Informations')
     })
-
 
     it("Page risque AVC", () => {
       cy.visit('http://localhost:4200')
@@ -34,11 +26,31 @@ describe('Visite du site', () => {
       cy.url().should('include', '/Maladies/AVC')
     })
 
+    it("Page formulaire AVC", () => {
+      cy.visit('http://localhost:4200')
+
+      cy.get('.dropdown-menu li').contains('AVC').click({force: true})
+      cy.url().should('include', '/Maladies/AVC')
+
+      cy.contains('Calculer vos risques').click({force: true})
+      cy.url().should('include', '/Informations/AVC')
+    })
+
     it("Page risque crise cardiaque", () => {
       cy.visit('http://localhost:4200')
 
-      cy.get('.dropdown-menu li').contains('Crise cardiaque').click({force: true})
-      cy.url().should('include', '/Maladies/Heart')
+      cy.get('.dropdown-menu li').contains('Maladies cardiaques').click({force: true})
+      cy.url().should('include', '/Maladies/Cardiaque')
+    })
+
+    it("Page formulaire crise cardiaque", () => {
+      cy.visit('http://localhost:4200')
+
+      cy.get('.dropdown-menu li').contains('Maladies cardiaques').click({force: true})
+      cy.url().should('include', '/Maladies/Cardiaque')
+
+      cy.contains('Calculer vos risques').click({force: true})
+      cy.url().should('include', '/Informations/Cardiaque')
     })
 
     it("Page risque diabète", () => {
@@ -48,10 +60,20 @@ describe('Visite du site', () => {
       cy.url().should('include', '/Maladies/Diabete')
     })
 
+    it("Page formulaire diabète", () => {
+      cy.visit('http://localhost:4200')
+
+      cy.get('.dropdown-menu li').contains('Diabète').click({force: true})
+      cy.url().should('include', '/Maladies/Diabete')
+
+      cy.contains('Calculer vos risques').click({force: true})
+      cy.url().should('include', '/Informations/Diabete')
+    })
+
     it("Page bilan général", () => {
       cy.visit('http://localhost:4200')
 
       cy.contains('Bilan général').click({force: true})
-      cy.url().should('include', '/Bilan')
+      cy.url().should('include', '/Profile')
     })
   })
