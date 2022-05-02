@@ -7,8 +7,9 @@ table{
     width: 100%; 
     height: 300px; 
     vertical-align: middle; 
+    margin-left: 10%;
+    font-size: 150%;
 } 
- 
 
 li { 
     list-style-type: disc; 

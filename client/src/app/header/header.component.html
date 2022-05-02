@@ -1,4 +1,35 @@
-<div id="wrap">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="Accueil">
+    <img src="assets/images/logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+    CheckSanté
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse">
+      
+      <ul class="nav navbar-nav navbar-left">
+        <div class="dropdown">
+          <button class="dropbtn">Maladies</button>
+          <div class="dropdown-content">
+            <a routerLink="Maladies/AVC">AVC</a>
+            <a routerLink="Maladies/Cardiaque">Maladies cardiaques</a>
+            <a routerLink="Maladies/Diabete">Diabète</a>
+          </div>
+        </div>
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="Informations">Mes données</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="Profile">Bilan général</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- <div id="wrap">
   <nav class="navbar" role="navigation" style="background-color: #1c8ac6;">
     <div class="container">
       <div class="navbar-header">
@@ -34,4 +65,4 @@
       </div>
     </div>
   </nav>
-</div>
+</div> -->
