@@ -168,4 +168,54 @@ export default class UserController {
       return;
     }
   }
+
+  static async apiGetCardiologueAppointment(req, res, next){
+    try {
+      console.log("Get Cardiologue Appointment");
+      await console.log(req.query);
+      const resultsRetrieval = await UserService.getCardiologueAppointment(req.query.city);
+      console.log(resultsRetrieval);
+      if (!resultsRetrieval) {
+        res.status(404).json("Not found");
+        return;
+      }
+      res.json(resultsRetrieval);
+      return;
+    } catch (error) {
+      res.status(500).json({ error: error });
+      return;
+    }
+  }
+
+  static async apiGetDiabetologueAppointment(req, res, next){
+    try {
+      console.log("Get Diabetologue Appointment");
+      const resultsRetrieval = await UserService.getDiabetologueAppointment(req.query.city);
+      if (!resultsRetrieval) {
+        res.status(404).json("Not found");
+        return;
+      }
+      res.json(resultsRetrieval);
+      return;
+    } catch (error) {
+      res.status(500).json({ error: error });
+      return;
+    }
+  }
+
+  static async apiGetNeurologueAppointment(req, res, next){
+    try {
+      console.log("Get Neurologue Appointment");
+      const resultsRetrieval = await UserService.getNeurologueAppointment(req.query.city);
+      if (!resultsRetrieval) {
+        res.status(404).json("Not found");
+        return;
+      }
+      res.json(resultsRetrieval);
+      return;
+    } catch (error) {
+      res.status(500).json({ error: error });
+      return;
+    }
+  }
 }

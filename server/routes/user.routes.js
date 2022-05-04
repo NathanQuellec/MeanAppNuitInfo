@@ -24,4 +24,10 @@ export const UserRoutes = (app) => {
   app.get("/diagnostics/cardiaque", UserController.apiGetHeartModelResults);
 
   app.get("/diagnostics/cardiaque/history", UserController.apiGetHeartModelResultsHistory);
+
+  app.get("/appointment/cardiologue", UserController.apiGetCardiologueAppointment);
+
+  app.get("/appointment/diabetologue", UserController.apiGetDiabetologueAppointment);
+
+  app.get("/appointment/neurologue", UserController.apiGetNeurologueAppointment);
 };

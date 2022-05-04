@@ -14,10 +14,11 @@ export class AvcComponent implements OnInit {
     this.getAVCResultsModelHistoryFromAPI();
   }
 
-  constructor(private user: UserService) { }
+  constructor(private user: UserService) {}
 
   avcResults: Results | any;
   avcScore: Number = 0;
+  link: String | any;
 
   public type: ChartType = 'line';
 
@@ -34,49 +35,51 @@ export class AvcComponent implements OnInit {
     ],
   };
 
-  public lineChartOptions: ChartConfiguration['options'] = {    
+  public lineChartOptions: ChartConfiguration['options'] = {
     scales: {
       y: {
         suggestedMin: 0,
         suggestedMax: 1,
-      }
-    }
-};
+      },
+    },
+  };
 
-getAVCResultsModelFromAPI() {
-  this.user.getAVCResultsModel().subscribe((result: Results) => {
-    this.avcResults = result;
-    this.avcScore = Number(result.score) * 100;
-    console.log(this.avcResults);
-  });
-}
-
-getAVCResultsModelHistoryFromAPI() {
-  let history: number[] = [];
-  let lim: number[] = [];
-  this.user
-    .getAVCResultsModelHistory()
-    .subscribe((avcResultsHistory: Array<Results>) => {
-      avcResultsHistory.forEach((avc) => {
-        history.unshift(Number(avc.score));
-        lim.push(0.5);
-        this.lineChartLabel.unshift(avc.createdAt.slice(0, 10));
-      });
-
-      console.log(history);
-      this.dataset = {
-        labels: this.lineChartLabel,
-        datasets: [
-          {
-            label: 'Limite',
-            data: lim
-          },
-          {
-            label: 'risque',
-            data: history
-          }
-        ],
-      };
+  getAVCResultsModelFromAPI() {
+    this.user.getAVCResultsModel().subscribe((result: Results) => {
+      this.avcResults = result;
+      this.avcScore = Number(result.score) * 100;
+      console.log(this.avcResults);
     });
-}
+  }
+
+  getAVCResultsModelHistoryFromAPI() {
+    let history: number[] = [];
+    let lim: number[] = [];
+    this.user
+      .getAVCResultsModelHistory()
+      .subscribe((avcResultsHistory: Array<Results>) => {
+        avcResultsHistory.forEach((avc) => {
+          history.unshift(Number(avc.score));
+          lim.push(0.5);
+          this.lineChartLabel.unshift(avc.createdAt.slice(0, 10));
+        });
+
+        console.log(history);
+        this.dataset = {
+          labels: this.lineChartLabel,
+          datasets: [
+            {
+              label: 'Limite',
+              data: lim,
+            },
+            {
+              label: 'risque',
+              data: history,
+            },
+          ],
+        };
+      });
+  }
+
+
 }
