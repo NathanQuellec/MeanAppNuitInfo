@@ -1,0 +1,14 @@
+div {
+    font-size: 150%;
+}
+
+h1{
+    font-size: 300%;
+    text-align: center;
+}
+
+.chart-container {
+    width: 80%;
+    height: 80%;
+    margin: 0 auto;
+}

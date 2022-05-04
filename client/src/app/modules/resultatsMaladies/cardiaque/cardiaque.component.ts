@@ -82,11 +82,15 @@ getCardiaqueResultsModelHistoryFromAPI() {
         datasets: [
           {
             label: 'Limite',
-            data: lim
+            data: lim,
+            borderDash: [10,5],
           },
           {
             label: 'risque',
-            data: history
+            data: history,
+            backgroundColor: 'rgba(255, 205, 86, 0.2)',
+            borderColor: 'rgb(255, 205, 86)',
+            pointBackgroundColor: 'rgb(255, 205, 86)'
           }
         ],
       };

@@ -39,15 +39,16 @@
                             Hg):</label>
                         <div class="col-md-9 col-sm-10">
                             <input type="number" class="form-control" id="pression" placeholder="0" required
-                                name="pression" [(ngModel)]="model.pression" #pression="ngModel">
+                                name="pression" min="60" max="300" [(ngModel)]="model.pression" #pression="ngModel">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-3 col-sm-2 control-label" for="chrolesterol">Chroléstérol (en
-                            mm/dL):</label>
+                            mg/dL):</label>
                         <div class="col-md-9 col-sm-10">
                             <input type="number" class="form-control" id="chrolesterol" placeholder="0" required
-                                name="chrolesterol" [(ngModel)]="model.chrolesterol" #cholesterol="ngModel">
+                                name="chrolesterol" max="430" min="85" [(ngModel)]="model.chrolesterol"
+                                #cholesterol="ngModel">
                         </div>
                     </div>
                     <div class="form-group">
@@ -74,7 +75,7 @@
                         <label class="col-md-3 col-sm-2 control-label" for="rythme">Rythme cardiaque max :</label>
                         <div class="col-md-9 col-sm-10">
                             <input type="number" class="form-control" id="rythme" placeholder="0" required name="rythme"
-                                [(ngModel)]="model.rythme" #rythme="ngModel">
+                                max="210" min="60" [(ngModel)]="model.rythme" #rythme="ngModel">
                         </div>
                     </div>
                     <div class="form-group">
@@ -86,14 +87,14 @@
                             <label for="checkAngine1">Oui</label>
                             <input class="form-ratio" type="radio" id="checkAngine2" name="angine"
                                 [(ngModel)]="model.angine" name="angine" #angine="ngModel" value="0">
-                            <label for="checkGAngine2">Non</label>
+                            <label for="checkAngine2">Non</label>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-3 col-sm-2 control-label" for="oldpeak">Oldpeak :</label>
                         <div class="col-md-9 col-sm-10">
                             <input type="number" class="form-control" id="oldpeak" placeholder="0" required
-                                name="oldpeak" [(ngModel)]="model.oldpeak" #oldpeak="ngModel">
+                                name="oldpeak" min="-1" max="6" [(ngModel)]="model.oldpeak" #oldpeak="ngModel">
                         </div>
                     </div>
                     <div class="form-group">

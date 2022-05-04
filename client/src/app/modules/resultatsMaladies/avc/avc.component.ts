@@ -9,9 +9,19 @@ import { ChartConfiguration, ChartData, ChartType } from 'chart.js';
   styleUrls: ['./avc.component.css'],
 })
 export class AvcComponent implements OnInit {
+
+  public tps: number = 0;
+
   ngOnInit(): void {
-    this.getAVCResultsModelFromAPI();
-    this.getAVCResultsModelHistoryFromAPI();
+    if(this.tps == 0){
+      this.tps = 1;
+      this.ngOnInit();
+    }
+    else{
+      this.getAVCResultsModelFromAPI();
+      this.getAVCResultsModelHistoryFromAPI();
+      this.tps = 0;
+    }
   }
 
   constructor(private user: UserService) { }
@@ -41,7 +51,7 @@ export class AvcComponent implements OnInit {
         suggestedMax: 1,
       }
     }
-};
+  };
 
 getAVCResultsModelFromAPI() {
   this.user.getAVCResultsModel().subscribe((result: Results) => {
@@ -69,14 +79,15 @@ getAVCResultsModelHistoryFromAPI() {
         datasets: [
           {
             label: 'Limite',
-            data: lim
+            data: lim,
+            borderDash: [10,5],
           },
           {
             label: 'risque',
             data: history
           }
-        ],
+        ]
       };
     });
-}
+  }
 }
