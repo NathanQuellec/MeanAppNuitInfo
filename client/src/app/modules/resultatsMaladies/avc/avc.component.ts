@@ -9,9 +9,19 @@ import { ChartConfiguration, ChartData, ChartType } from 'chart.js';
   styleUrls: ['./avc.component.css'],
 })
 export class AvcComponent implements OnInit {
+
+  public tps: number = 0;
+
   ngOnInit(): void {
-    this.getAVCResultsModelFromAPI();
-    this.getAVCResultsModelHistoryFromAPI();
+    if(this.tps == 0){
+      this.tps = 1;
+      this.ngOnInit();
+    }
+    else{
+      this.getAVCResultsModelFromAPI();
+      this.getAVCResultsModelHistoryFromAPI();
+      this.tps = 0;
+    }
   }
 
   constructor(private user: UserService) { }

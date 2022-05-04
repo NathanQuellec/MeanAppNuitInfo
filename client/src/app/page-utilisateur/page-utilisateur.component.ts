@@ -52,8 +52,6 @@ export class PageUtilisateurComponent implements OnInit {
   colorIMCLabel: string = "";
 
   public getColorIMC() {
-
-
     console.log(this.imc);
     if (this.imc > 35) {
       this.colorIMCDigits = "text-red-700";
@@ -102,12 +100,19 @@ export class PageUtilisateurComponent implements OnInit {
 
   ngOnInit(): void {
     //window.location.reload();
-    this.getResultsModelHistory();
-    this.getColorIMC();
+    if(this.tps== 0){
+      this.tps = 1;
+      this.ngOnInit();
+    }
+    else{
+      this.getResultsModelHistory();
+    //this.getColorIMC();
+    }
   }
  
 
   public getResultsModelHistory() {
+    let max: number = 0;
     let lim: number[] = [];
     this.user
       .getAVCResultsModelHistory()
@@ -118,6 +123,8 @@ export class PageUtilisateurComponent implements OnInit {
           this.lineChartLabel.unshift(avc.createdAt.slice(0, 10));
         });
       });
+   /* max = this.avcData.length;
+    console.log(max);*/
       this.user
       .getDiabeteResultsModelHistory()
       .subscribe((diabeteResultsHistory: Array<Results>) => {
@@ -125,13 +132,25 @@ export class PageUtilisateurComponent implements OnInit {
           this.diabeteData.unshift(Number(diabete.score));
         });
       });
+     /* if(this.cardiaqueData.length > max){
+      max = this.cardiaqueData.length;
+    }*/
       this.user
       .getCardiaqueResultsModelHistory()
       .subscribe((cardiaqueResultsHistory: Array<Results>) => {
         cardiaqueResultsHistory.forEach((cardiaque) => {
           this.cardiaqueData.unshift(Number(cardiaque.score));
         });
-        
+    /*if(max < this.diabeteData.length){
+      max = this.diabeteData.length;
+    }
+    console.log(max);
+
+    for (var i = 0; i < max; i++){
+      lim.push(0.5);
+    }
+    console.log(lim);*/
+
     this.dataset = {
       labels: this.lineChartLabel,
       datasets: [
