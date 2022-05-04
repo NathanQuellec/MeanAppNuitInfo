@@ -159,9 +159,8 @@
                     <div class="form-group">
                         <label class="col-md-3 col-sm-2 control-label">Que diriez-vous de votre santé générale :</label>
                         <div class="col-md-9 col-sm-10">
-                            <select class="form-control" [(ngModel)]="model.genHlth" name="genHlth" placeholder="select"
-                                required>
-                                <option *ngFor="let g of genHlths" [ngValue]="g.genHlthcode">{{g.genHlthname}}</option>
+                            <select class="form-control" [(ngModel)]="model.genHlth" name="genHlth" required>
+                                <option *ngFor="let h of genHlths" [ngValue]="h.genHlthcode">{{h.genHlthname}}</option>
                             </select>
                         </div>
                     </div>
@@ -171,7 +170,7 @@
                             problèmes émotionnels) ?</label>
                         <div class="col-md-9 col-sm-10">
                             <input type="number" class="form-control" id="mentHlth" required name="mentHlth"
-                                [(ngModel)]="model.mentHlth" #mentHlth="ngModel">
+                            min="0" max="30" [(ngModel)]="model.mentHlth" #mentHlth="ngModel">
                         </div>
                     </div>
                     <div class="form-group">
@@ -180,7 +179,7 @@
                             et/ou blessures) ?</label>
                         <div class="col-md-9 col-sm-10">
                             <input type="number" class="form-control" id="physHlth" required name="physHlth"
-                                [(ngModel)]="model.physHlth" #physHlth="ngModel">
+                                min="0" max="30" [(ngModel)]="model.physHlth" #physHlth="ngModel">
                         </div>
                     </div>
                     <div class="form-group">
@@ -209,8 +208,7 @@
                     <div class="form-group">
                         <label class="col-md-3 col-sm-2 control-label">Age : </label>
                         <div class="col-md-9 col-sm-10">
-                            <select class="form-control" [(ngModel)]="model.age" name="age" placeholder="select"
-                                required>
+                            <select class="form-control" [(ngModel)]="model.age" name="age" required>
                                 <option *ngFor="let a of ages" [ngValue]="a.agecode">{{a.agename}}</option>
                             </select>
                         </div>
@@ -218,8 +216,7 @@
                     <div class="form-group">
                         <label class="col-md-3 col-sm-2 control-label">Niveau d'étude : </label>
                         <div class="col-md-9 col-sm-10">
-                            <select class="form-control" [(ngModel)]="model.education" name="education"
-                                placeholder="select" required>
+                            <select class="form-control" [(ngModel)]="model.education" name="education" placeholder="select" required>
                                 <option *ngFor="let e of educations" [ngValue]="e.educationcode">{{e.educationname}}
                                 </option>
                             </select>
@@ -228,8 +225,7 @@
                     <div class="form-group">
                         <label class="col-md-3 col-sm-2 control-label">Revenu annuel net : </label>
                         <div class="col-md-9 col-sm-10">
-                            <select class="form-control" [(ngModel)]="model.income" name="income" placeholder="select"
-                                required>
+                            <select class="form-control" [(ngModel)]="model.income" name="income" required>
                                 <option *ngFor="let i of incomes" [ngValue]="i.incomecode">{{i.incomename}}</option>
                             </select>
                         </div>
