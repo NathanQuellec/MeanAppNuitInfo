@@ -41,7 +41,7 @@ export class AvcComponent implements OnInit {
         suggestedMax: 1,
       }
     }
-};
+  };
 
 getAVCResultsModelFromAPI() {
   this.user.getAVCResultsModel().subscribe((result: Results) => {
@@ -69,14 +69,15 @@ getAVCResultsModelHistoryFromAPI() {
         datasets: [
           {
             label: 'Limite',
-            data: lim
+            data: lim,
+            borderDash: [10,5],
           },
           {
             label: 'risque',
             data: history
           }
-        ],
+        ]
       };
     });
-}
+  }
 }

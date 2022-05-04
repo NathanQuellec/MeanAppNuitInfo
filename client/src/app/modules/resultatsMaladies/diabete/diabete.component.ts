@@ -70,11 +70,15 @@ getDiabeteResultsModelHistoryFromAPI() {
         datasets: [
           {
             label: 'Limite',
-            data: lim
+            data: lim,
+            borderDash: [10,5],
           },
           {
             label: 'risque',
-            data: history
+            data: history,
+            backgroundColor: 'rgba(153, 102, 255, 0.2)',
+            borderColor: 'rgb(153, 102, 255)',
+            pointBackgroundColor: 'rgb(153, 102, 255)'
           }
         ],
       };
