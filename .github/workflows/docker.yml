@@ -10,5 +10,5 @@ jobs:
     - name: Build the stack
       run: | 
         echo ---Building and starting up docker---
-        docker-compose up --build -d
+        docker-compose up -f docker-compose.dev.yaml --build -d
         echo ---End of build---
