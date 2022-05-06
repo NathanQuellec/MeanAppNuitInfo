@@ -12,7 +12,7 @@ import { UserCardiaque } from '../user-cardiaque';
 export class FormulaireCardiaqueComponent implements OnInit {
   body: String | any;
 
-  model = new UserCardiaque(0,0,0,120,180,0,0,130,0,1,0);
+  model = new UserCardiaque(0,0,0,80,100,0,1,130,0,1,1);
 
   submitted = false;
 

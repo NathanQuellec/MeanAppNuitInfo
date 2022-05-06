@@ -43,7 +43,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-3 col-sm-2 control-label" for="bmi">IMC :</label>
+                        <label class="col-md-3 col-sm-2 control-label" for="bmi">IMC : <a class="picto-item" href="#" aria-label="L'imc doit se situer entre 16 et 50">i</a></label>
                         <div class="col-md-9 col-sm-10">
                             <input type="number" class="form-control" id="bmi" required name="bmi"
                                 [(ngModel)]="model.bmi" #bmi="ngModel">
@@ -167,7 +167,8 @@
                     <div class="form-group">
                         <label class="col-md-3 col-sm-2 control-label" for="mentHlth">Pendant combien de jours au cours
                             des 30 derniers jours votre santé mentale n'a-t-elle pas été bonne (stress, dépression,
-                            problèmes émotionnels) ?</label>
+                            problèmes émotionnels) ? <a class="picto-item" href="#"
+                            aria-label="Ce champ doit contenir une valeur entre 0 et 30">i</a></label>
                         <div class="col-md-9 col-sm-10">
                             <input type="number" class="form-control" id="mentHlth" required name="mentHlth"
                             min="0" max="30" [(ngModel)]="model.mentHlth" #mentHlth="ngModel">
@@ -176,7 +177,8 @@
                     <div class="form-group">
                         <label class="col-md-3 col-sm-2 control-label" for="physHlth">Pendant combien de jours au cours
                             des 30 derniers jours votre santé physique n'a-t-elle pas été bonne (maladies physiques
-                            et/ou blessures) ?</label>
+                            et/ou blessures) ? <a class="picto-item" href="#"
+                            aria-label="Ce champ doit contenir une valeur entre 0 et 30">i</a></label>
                         <div class="col-md-9 col-sm-10">
                             <input type="number" class="form-control" id="physHlth" required name="physHlth"
                                 min="0" max="30" [(ngModel)]="model.physHlth" #physHlth="ngModel">
