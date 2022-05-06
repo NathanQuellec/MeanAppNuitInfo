@@ -7,6 +7,66 @@
     padding: 0;
 }
 
+.form-horizontal{
+    width: 100%;
+}
+
+.picto-item {
+    position: relative;  /*les .picto-item deviennent référents*/
+   
+    border-radius: 25%;
+  }
+  
+  /* on génère un élément :after lors du survol et du focus :*/
+  
+  .picto-item:hover:after,
+  .picto-item:focus:after {
+    content: attr(aria-label);  /* on affiche aria-label */
+    position: absolute;
+    top: -2.4em;
+    left: 50%;
+      transform: translateX(-50%); /* on centre horizontalement  */
+    z-index: 1; /* pour s'afficher au dessus des éléments en position relative */
+    white-space: nowrap;  /* on interdit le retour à la ligne*/
+    padding: 5px 14px;
+    background: #413219;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 1.2rem;
+  }
+  
+  /* on génère un second élément en :before pour la flèche */
+  
+  [aria-label]:hover:before,
+  [aria-label]:focus:before {
+    content: "▼";
+    position: absolute;
+    top: -1em;
+      left: 50%;
+      transform: translateX(-50%); /* on centre horizontalement  */
+    font-size: 20px;
+    color: #413219;
+  }
+  
+  /* pas de contour durant le :focus */
+  [aria-label]:focus {
+    outline: none;
+  }  
+
+.picto-item {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 .2em;
+    width: 1.2em;
+    height: 1.2em;
+    color: white;
+    background: red;
+    font-size: 1.5rem;
+    text-align: center;
+    text-decoration: none;
+  }
+
 h1{ 
     font-size:300%; 
     text-align: center; 
@@ -24,6 +84,7 @@ p{
     background: transparent;
     border: 1px solid rgba(255,255,255,0.5);
     height: 44px;
+    width: 350px;
     line-height: 2;
     color: #000000;
     padding: 10px 15px;
@@ -58,7 +119,7 @@ p{
 
 .form-horizontal .form-ratio:checked + label{
     background: #fff;
-    color: #2659ff;
+    color: red;
 }
 
 .form-horizontal #checkHypertension2 + label{
@@ -96,7 +157,7 @@ p{
 }
 
 .form-horizontal .btn:hover{
-    color: #2659ff;
+    color: red;
     background: #fff;
 }
 

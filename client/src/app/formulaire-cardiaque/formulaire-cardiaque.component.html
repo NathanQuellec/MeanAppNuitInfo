@@ -36,7 +36,7 @@
                     </div>
                     <div class="form-group">
                         <label class="col-md-3 col-sm-2 control-label" for="pression">Pression artérielle (en mm
-                            Hg):</label>
+                            Hg): <a class="picto-item" href="#" aria-label="La pression artérielle doit se situer entre 60 et 200">i</a></label>
                         <div class="col-md-9 col-sm-10">
                             <input type="number" class="form-control" id="pression" placeholder="0" required
                                 name="pression" min="60" max="300" [(ngModel)]="model.pression" #pression="ngModel">
@@ -44,7 +44,7 @@
                     </div>
                     <div class="form-group">
                         <label class="col-md-3 col-sm-2 control-label" for="chrolesterol">Chroléstérol (en
-                            mg/dL):</label>
+                            mg/dL): <a class="picto-item" href="#" aria-label="Le taux de Chroléstérol total doit se situer entre 85 et 430">i</a></label>
                         <div class="col-md-9 col-sm-10">
                             <input type="number" class="form-control" id="chrolesterol" placeholder="0" required
                                 name="chrolesterol" max="430" min="85" [(ngModel)]="model.chrolesterol"
@@ -72,7 +72,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-3 col-sm-2 control-label" for="rythme">Rythme cardiaque max :</label>
+                        <label class="col-md-3 col-sm-2 control-label" for="rythme">Rythme cardiaque max : <a class="picto-item" href="#" aria-label="Le rythme cardiaque maximal atteint au cours de la journée doit se situer entre 60 et 200">i</a></label>
                         <div class="col-md-9 col-sm-10">
                             <input type="number" class="form-control" id="rythme" placeholder="0" required name="rythme"
                                 max="210" min="60" [(ngModel)]="model.rythme" #rythme="ngModel">
@@ -91,7 +91,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-3 col-sm-2 control-label" for="oldpeak">Oldpeak :</label>
+                        <label class="col-md-3 col-sm-2 control-label" for="oldpeak">Oldpeak : <a class="picto-item" href="#" aria-label="La mesure de la pente du segment ST se situe entre -1 et 6">i</a></label>
                         <div class="col-md-9 col-sm-10">
                             <input type="number" class="form-control" id="oldpeak" placeholder="0" required
                                 name="oldpeak" min="-1" max="6" [(ngModel)]="model.oldpeak" #oldpeak="ngModel">
