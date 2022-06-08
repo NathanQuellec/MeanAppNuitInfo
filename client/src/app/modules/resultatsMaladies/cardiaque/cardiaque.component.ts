@@ -14,6 +14,11 @@ import { Results } from 'src/app/interface/Results';
 export class CardiaqueComponent implements OnInit {
 
   resultPost: String | any;
+  url: String | any;
+  city: string = "";
+
+  cardiaqueResults: Results | any;
+  cardiaqueScore: Number = 0;
 
   model = new UserCardiaque(0,0,0,0,0,0,0,0,0,0,0);
 
@@ -25,11 +30,10 @@ export class CardiaqueComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCardiaqueResultsModelFromAPI();
+    this.getUserLocation();
     this.getCardiaqueResultsModelHistoryFromAPI();
+    this.getCardiologueAppointmentFromAPI();
   }
-
-  cardiaqueResults: Results | any;
-  cardiaqueScore: Number = 0;
 
   
   public type: ChartType = 'line';
@@ -55,6 +59,29 @@ export class CardiaqueComponent implements OnInit {
       }
     }
 };
+
+
+openDoctolibCardiologue() {
+  window.open(this.url);
+}
+
+getUserLocation() {
+  let latitude, longitude
+  navigator.geolocation.getCurrentPosition( pos => {
+    latitude = pos.coords.latitude;
+    longitude = pos.coords.longitude;
+    console.log(`latitude : ${latitude} longitude : ${longitude}`)
+  });
+}
+
+getCardiologueAppointmentFromAPI() {
+    this.user.getCardiologueAppointment(this.city).subscribe((result: String) => {
+    this.url = result;
+    console.log(this.url);
+  });
+}
+
+
 
 getCardiaqueResultsModelFromAPI() {
   this.user.getCardiaqueResultsModel().subscribe((result: Results) => {

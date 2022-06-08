@@ -197,4 +197,10 @@ export class UserService {
   getAVCResultsModelHistory(): Observable<Array<Results>> {
     return this.http.get<Array<Results>>(environment.apiUrl + '/diagnostics/avc/history');
   }
+  
+  getCardiologueAppointment(city: string) {
+    const params = new HttpParams()
+        .append('city', city);
+    return this.http.get<String>(environment.apiUrl + '/appointment/cardiologue', {params: params});
+  }
 }
