@@ -6,6 +6,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ChartConfiguration, ChartData, ChartType } from 'chart.js';
 import { Results } from 'src/app/interface/Results';
 
+
 @Component({
   selector: 'app-cardiaque',
   templateUrl: './cardiaque.component.html',
@@ -15,7 +16,7 @@ export class CardiaqueComponent implements OnInit {
 
   resultPost: String | any;
   url: String | any;
-  city: string = "";
+  city: string = "paris";
 
   cardiaqueResults: Results | any;
   cardiaqueScore: Number = 0;
@@ -30,6 +31,7 @@ export class CardiaqueComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCardiaqueResultsModelFromAPI();
+    this.reverseGeocode()
     this.getUserLocation();
     this.getCardiaqueResultsModelHistoryFromAPI();
     this.getCardiologueAppointmentFromAPI();
@@ -60,6 +62,12 @@ export class CardiaqueComponent implements OnInit {
     }
 };
 
+reverseGeocode() {
+  this.user.getReverseGeocoding().subscribe((result: String) => {
+    this.url = result;
+    console.log(this.url.results[0]);
+  })
+}
 
 openDoctolibCardiologue() {
   window.open(this.url);

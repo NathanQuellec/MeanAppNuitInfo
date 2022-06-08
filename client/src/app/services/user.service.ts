@@ -203,4 +203,9 @@ export class UserService {
         .append('city', city);
     return this.http.get<String>(environment.apiUrl + '/appointment/cardiologue', {params: params});
   }
+
+  getReverseGeocoding() {
+    return this.http.get<String>("https://maps.googleapis.com/maps/api/geocode/json?latlng=48.890939,2.1115931&key=AIzaSyCx4vvO5hektNvbDYf-lS4oyEeetcMkhNE");
+  }
+  
 }
