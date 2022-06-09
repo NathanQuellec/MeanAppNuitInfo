@@ -18,6 +18,7 @@ export class AvcComponent implements OnInit {
       this.ngOnInit();
     }
     else{
+      this.getUserLocation();
       this.getAVCResultsModelFromAPI();
       this.getAVCResultsModelHistoryFromAPI();
       this.tps = 0;
@@ -28,6 +29,8 @@ export class AvcComponent implements OnInit {
 
   avcResults: Results | any;
   avcScore: Number = 0;
+  url: String | any;
+  city: string = "";
 
   public type: ChartType = 'line';
 
@@ -52,6 +55,31 @@ export class AvcComponent implements OnInit {
       }
     }
   };
+
+  getUserLocation() {
+    let latitude, longitude
+    navigator.geolocation.getCurrentPosition( pos => {
+      latitude = pos.coords.latitude;
+      longitude = pos.coords.longitude;
+      console.log(`latitude : ${latitude} longitude : ${longitude}`)
+  
+      this.user.getReverseGeocoding(latitude, longitude).subscribe((result: String) => {
+        this.url = result;
+        this.city = this.url.results[0].address_components[2].long_name;
+        this.city = this.city.toLowerCase();
+        this.city = this.city.replace(" ","-")
+        console.log(this.city);
+      })
+    });
+  }
+
+getNeurologueAppointmentFromAPI() {
+  this.user.getNeurologueAppointment(this.city).subscribe((result: String) => {
+  this.url = result;
+  console.log(this.url);
+  window.open(this.url);
+  });
+}
 
 getAVCResultsModelFromAPI() {
   this.user.getAVCResultsModel().subscribe((result: Results) => {

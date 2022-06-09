@@ -4,7 +4,8 @@
  
 export const environment = {
  production: false,
- apiUrl: 'http://localhost:3000'
+ apiUrl: 'http://localhost:3000',
+ googleApiKey: 'AIzaSyCx4vvO5hektNvbDYf-lS4oyEeetcMkhNE'
 };
 
 /*

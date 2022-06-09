@@ -197,4 +197,26 @@ export class UserService {
   getAVCResultsModelHistory(): Observable<Array<Results>> {
     return this.http.get<Array<Results>>(environment.apiUrl + '/diagnostics/avc/history');
   }
+  
+  getCardiologueAppointment(city: string) {
+    const params = new HttpParams()
+        .append('city', city);
+    return this.http.get<String>(environment.apiUrl + '/appointment/cardiologue', {params: params});
+  }
+
+  getDiabetologueAppointment(city: string) {
+    const params = new HttpParams()
+        .append('city', city);
+    return this.http.get<String>(environment.apiUrl + '/appointment/diabetologue', {params: params});
+  }
+  getNeurologueAppointment(city: string) {
+    const params = new HttpParams()
+        .append('city', city);
+    return this.http.get<String>(environment.apiUrl + '/appointment/neurologue', {params: params});
+  }
+
+  getReverseGeocoding(latitude: number | undefined, longitude: number | undefined) {
+    return this.http.get<String>(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${environment.googleApiKey}`);
+  }
+  
 }

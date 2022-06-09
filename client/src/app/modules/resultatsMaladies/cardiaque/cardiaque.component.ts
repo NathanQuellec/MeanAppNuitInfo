@@ -6,6 +6,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ChartConfiguration, ChartData, ChartType } from 'chart.js';
 import { Results } from 'src/app/interface/Results';
 
+
 @Component({
   selector: 'app-cardiaque',
   templateUrl: './cardiaque.component.html',
@@ -14,6 +15,11 @@ import { Results } from 'src/app/interface/Results';
 export class CardiaqueComponent implements OnInit {
 
   resultPost: String | any;
+  url: String | any;
+  city: string = "";
+
+  cardiaqueResults: Results | any;
+  cardiaqueScore: Number = 0;
 
   model = new UserCardiaque(0,0,0,0,0,0,0,0,0,0,0);
 
@@ -25,11 +31,9 @@ export class CardiaqueComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCardiaqueResultsModelFromAPI();
+    this.getUserLocation();
     this.getCardiaqueResultsModelHistoryFromAPI();
   }
-
-  cardiaqueResults: Results | any;
-  cardiaqueScore: Number = 0;
 
   
   public type: ChartType = 'line';
@@ -55,6 +59,31 @@ export class CardiaqueComponent implements OnInit {
       }
     }
 };
+
+getUserLocation() {
+  let latitude, longitude
+  navigator.geolocation.getCurrentPosition( pos => {
+    latitude = pos.coords.latitude;
+    longitude = pos.coords.longitude;
+    console.log(`latitude : ${latitude} longitude : ${longitude}`)
+
+    this.user.getReverseGeocoding(latitude, longitude).subscribe((result: String) => {
+      this.url = result;
+      this.city = this.url.results[0].address_components[2].long_name;
+      this.city = this.city.toLowerCase();
+      this.city = this.city.replace(" ","-")
+      console.log(this.city);
+    })
+  });
+}
+
+getCardiologueAppointmentFromAPI() {
+    this.user.getCardiologueAppointment(this.city).subscribe((result: String) => {
+    this.url = result;
+    console.log(this.url);
+    window.open(this.url);
+    });
+}
 
 getCardiaqueResultsModelFromAPI() {
   this.user.getCardiaqueResultsModel().subscribe((result: Results) => {
