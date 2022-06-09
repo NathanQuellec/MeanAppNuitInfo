@@ -13,12 +13,15 @@ export class DiabeteComponent implements OnInit {
   constructor(private user: UserService) { }
 
   ngOnInit(): void {
+    this.getUserLocation();
     this.getDiabeteResultsModelFromAPI();
     this.getDiabeteResultsModelHistoryFromAPI();
   }
 
   diabeteResults: Results | any;
   diabeteScore: Number = 0;
+  url: String | any;
+  city: string = "";
 
   public type: ChartType = 'line';
 
@@ -43,6 +46,31 @@ export class DiabeteComponent implements OnInit {
       }
     }
 };
+
+getUserLocation() {
+  let latitude, longitude
+  navigator.geolocation.getCurrentPosition( pos => {
+    latitude = pos.coords.latitude;
+    longitude = pos.coords.longitude;
+    console.log(`latitude : ${latitude} longitude : ${longitude}`)
+
+    this.user.getReverseGeocoding(latitude, longitude).subscribe((result: String) => {
+      this.url = result;
+      this.city = this.url.results[0].address_components[2].long_name;
+      this.city = this.city.toLowerCase();
+      this.city = this.city.replace(" ","-")
+      console.log(this.city);
+    })
+  });
+}
+
+getDiabetologueAppointmentFromAPI() {
+  this.user.getDiabetologueAppointment(this.city).subscribe((result: String) => {
+  this.url = result;
+  console.log(this.url);
+  window.open(this.url);
+  });
+}
 
 getDiabeteResultsModelFromAPI() {
   this.user.getDiabeteResultsModel().subscribe((result: Results) => {

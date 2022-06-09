@@ -204,8 +204,19 @@ export class UserService {
     return this.http.get<String>(environment.apiUrl + '/appointment/cardiologue', {params: params});
   }
 
-  getReverseGeocoding() {
-    return this.http.get<String>("https://maps.googleapis.com/maps/api/geocode/json?latlng=48.890939,2.1115931&key=AIzaSyCx4vvO5hektNvbDYf-lS4oyEeetcMkhNE");
+  getDiabetologueAppointment(city: string) {
+    const params = new HttpParams()
+        .append('city', city);
+    return this.http.get<String>(environment.apiUrl + '/appointment/diabetologue', {params: params});
+  }
+  getNeurologueAppointment(city: string) {
+    const params = new HttpParams()
+        .append('city', city);
+    return this.http.get<String>(environment.apiUrl + '/appointment/neurologue', {params: params});
+  }
+
+  getReverseGeocoding(latitude: number | undefined, longitude: number | undefined) {
+    return this.http.get<String>(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${environment.googleApiKey}`);
   }
   
 }

@@ -8,6 +8,12 @@
   à un avc est de {{ avcScore.toFixed(2) }} %
 </div>
 <br><br>
+<div *ngIf="avcScore > 50">
+  <p>Votre risque est supérieur à 50%, nous vous conseillons de consulter :</p>
+  <br>
+  <button type="button" class="btn btn-outline-primary" (click)="getNeurologueAppointmentFromAPI()">Consulter</button>
+</div>
+<br><br>
 <div class="chart-container">
   <h3>Evolution de vos risques d'AVC dans le temps</h3>
 <br>
