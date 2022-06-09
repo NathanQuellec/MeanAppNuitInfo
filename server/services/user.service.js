@@ -221,4 +221,32 @@ export default class UserService {
       console.log(error);
     }
   }
+
+  static async getCardiologueAppointment(city) {
+    try {
+      const response = `https://www.doctolib.fr/cardiologue/${city}`
+      console.log(response)
+      return response;
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  static async getDiabetologueAppointment(city) {
+    try {
+      const response = `https://www.doctolib.fr/diabetologue/${city}`
+      return response;
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  static async getNeurologueAppointment(city) {
+    try {
+      const response = `https://www.doctolib.fr/neurologue/${city}`
+      return response;
+    } catch (error) {
+      console.log(error)
+    }
+  }
 }

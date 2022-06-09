@@ -22,7 +22,7 @@ div {
 .calcul {
     background-color: white;
     color: black;
-    border: 2px solid #008CBA;
+    border: 2px solid red;
     /*padding: 16px 32px;*/
     text-align: center;
     text-decoration: none;
@@ -34,6 +34,6 @@ div {
 }
 
 .calcul:hover {
-    background-color: #008CBA;
+    background-color: red;
     color: white;
 }

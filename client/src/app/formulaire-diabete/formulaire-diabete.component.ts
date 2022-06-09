@@ -12,7 +12,7 @@ import { UserDiabete } from '../user-diabete';
 export class FormulaireDiabeteComponent implements OnInit {
   body: String | any;
 
-  model = new UserDiabete(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+  model = new UserDiabete(0, 0, 0, 21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 3, 6, 2);
 
   submitted = false;
 

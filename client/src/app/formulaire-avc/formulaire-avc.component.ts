@@ -12,7 +12,7 @@ import { UserAvc } from '../user-avc';
 export class FormulaireAvcComponent implements OnInit {
   body: String | any;
 
-  model = new UserAvc(0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+  model = new UserAvc(0, 0, 0, 0, 0, 0, 0, 90, 21, 0);
 
   submitted = false;
 
@@ -57,7 +57,7 @@ export class FormulaireAvcComponent implements OnInit {
       smoking_status
     );
     console.log(result);
-    this.route.navigate(['/Accueil']);
+    this.route.navigate(['/Maladies/AVC']);
   }
 
   works = [
